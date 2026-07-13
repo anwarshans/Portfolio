@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Anwarsha N S | Full Stack Developer | Software Engineer | Web Developer | Portfolio</title>
 <meta name="description" content="Anwarsha N S is a Full Stack Developer and Software Engineer from Kerala specializing in Python, Django, Java, PHP, Angular, JavaScript, MySQL, and modern web development. Explore projects, skills, certifications, experience, and resume.">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -50,7 +50,7 @@
   --glow:0 0 40px rgba(201,168,76,.15);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;cursor:none}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;cursor:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 ::selection{background:rgba(201,168,76,.2);color:var(--gold2)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
@@ -334,6 +334,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 /* ── TILT ── */
 .tilt{transition:transform .15s ease-out}
 
+@media (hover:none),(pointer:coarse){
+  body{cursor:auto}
+  .hoverable{cursor:pointer}
+  #cursor,#cursor-ring{display:none}
+  .tilt{transform:none !important}
+  canvas#particles{opacity:.18}
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
@@ -348,15 +356,62 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .hamburger{display:flex}
-  section{padding:5rem 1.5rem}
-  nav{padding:0 1.5rem}
-  h1.hero-title{font-size:2.2rem}
+  nav{padding:0 1rem;height:62px}
+  .mobile-menu{top:62px;padding:1.25rem 1rem}
+  section{padding:4.25rem 1rem}
+  footer{padding:1.5rem 1rem}
+  #hero{padding:5.5rem 1rem 3rem;min-height:auto}
+  h1.hero-title{font-size:clamp(2.05rem,8vw,2.65rem)}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .hero-stats{gap:1rem}
+  .stat-item{flex:1 1 calc(50% - 1rem)}
+  .about-shell{border-radius:14px}
+  .about-profile{padding:1rem .9rem}
+  .about-photo-caption{flex-direction:column;align-items:flex-start}
+  .profile-grid{grid-template-columns:1fr}
+  .profile-card{min-height:unset}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .cinfo-item{align-items:flex-start}
+  .modal-overlay{padding:1rem}
+  .modal-header,.modal-body{padding:1.25rem}
+  .projects-grid,.certs-grid,.ach-grid{grid-template-columns:1fr}
+  .exp-timeline{padding-left:1.5rem}
+  .exp-timeline::before{left:.5rem}
+  .exp-dot{left:-1.55rem}
+  .proj-body{padding:1.25rem}
+  .proj-links{flex-direction:column;gap:.75rem}
+  .proj-banner{height:150px}
+  .cert-card,.skill-cat,.edu-card,.ach-card{padding:1.1rem}
+  .cert-files-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr !important;gap:2rem !important;margin-bottom:2rem !important}
+  .skills-categories{grid-template-columns:1fr !important;gap:.85rem !important}
   .form-row{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{gap:1rem;justify-content:center;flex-wrap:wrap}
 }
 @media(max-width:480px){
-  #hero{padding:6rem 1.5rem 3rem}
-  .hero-stats{gap:1.75rem}
+  section{padding:3.75rem .95rem}
+  #hero{padding:5.25rem .95rem 2.5rem}
+  .hero-eyebrow{font-size:.64rem;letter-spacing:.08em;padding:.35rem .8rem}
+  .hero-name{font-size:.6rem;letter-spacing:.16em}
+  .hero-sub{font-size:.9rem;min-height:auto}
+  .hero-stats{gap:.85rem;margin-top:2rem;padding-top:1.5rem}
+  .stat-item{flex:1 1 calc(50% - .85rem)}
+  .stat-num{font-size:1.6rem}
+  .section-desc{margin-bottom:2.5rem;font-size:.95rem}
+  .profile-tag,.tag,.badge,.cert-file-chip{font-size:.62rem}
+  .skills-grid{grid-template-columns:1fr}
+  .hero-profile{bottom:4%}
+  .hero-location{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 1rem);font-size:.76rem;padding:.65rem .85rem}
+  .about-visual{padding:.35rem}
+  .about-photo-card img{border-radius:10px 10px 0 0}
+  .about-photo-caption{border-radius:0 0 10px 10px}
+  .profile-card{padding:.55rem .65rem}
+  .profile-icon{width:28px;height:28px}
+  .modal-box{border-radius:10px}
+  .proj-banner-name{font-size:2rem}
+  .contact-left h3{font-size:1.3rem}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal,.reveal-left,.reveal-right{transition:none;opacity:1;transform:none}
@@ -438,7 +493,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       </div>
     </div>
     <div class="hero-card tilt reveal-right delay-2" id="heroCard">
-      <div class="hero-photo-wrap"><img class="hero-photo" src="Uploads/Internship.jpg" alt="Anwarsha N S Full Stack Developer and Software Engineer"></div>
+      <div class="hero-photo-wrap"><img class="hero-photo" src="Uploads/Internship.jpg" alt="Anwarsha N S Full Stack Developer and Software Engineer" loading="eager" decoding="async"></div>
       <div class="hero-profile">
         <div class="hc-name">Anwarsha N S</div>
         <div class="hc-title">Full Stack Developer</div>
@@ -461,7 +516,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     <div class="about-shell reveal-right delay-1">
       <div class="about-visual">
         <div class="about-photo-card">
-          <img src="Uploads/Work.jpg" alt="Anwarsha N S developing software applications">
+          <img src="Uploads/Work.jpg" alt="Anwarsha N S developing software applications" loading="lazy" decoding="async">
           <div class="about-photo-caption">
             <div class="about-social">
               <a class="about-social-link hoverable" href="https://linkedin.com/in/anwarshans" target="_blank" rel="noopener" aria-label="LinkedIn profile">
@@ -512,7 +567,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     <h2 class="section-title reveal delay-1">Tools & Technologies</h2>
     <p class="section-desc reveal delay-2">A curated stack of languages, frameworks, and tools I use to design, build, and ship.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem;align-items:start">
+    <div class="skills-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem;align-items:start">
       <div class="reveal-left">
         <div style="font-size:.72rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem">Proficiency Overview</div>
         <div class="skill-bar-wrap" id="skillBars">
@@ -526,7 +581,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       </div>
       <div class="reveal-right delay-1">
         <div style="font-size:.72rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem">What I Work With</div>
-        <div class="skills-grid" style="grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="skills-grid skills-categories" style="grid-template-columns:1fr 1fr;gap:1rem">
           <div class="skill-cat"><div class="skill-cat-top"><div class="sk-icon">💻</div><div class="sk-name">Languages</div></div><div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">PHP</span><span class="tag">C</span><span class="tag">C++</span></div></div>
           <div class="skill-cat"><div class="skill-cat-top"><div class="sk-icon">🎨</div><div class="sk-name">Frontend</div></div><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JS</span><span class="tag">Bootstrap</span><span class="tag">Angular</span></div></div>
           <div class="skill-cat"><div class="skill-cat-top"><div class="sk-icon">⚙️</div><div class="sk-name">Backend</div></div><div class="tags"><span class="tag">Django</span><span class="tag">REST API</span><span class="tag">OOP</span><span class="tag">SDLC</span></div></div>
@@ -708,30 +763,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 ═══════════════════════════════════════════ */
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
-let mx = -100, my = -100, rx = -100, ry = -100;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animCursor() {
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
-  rx += (mx - rx) * .12;
-  ry += (my - ry) * .12;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animCursor);
+const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+if (!isTouchDevice) {
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+    rx += (mx - rx) * .12;
+    ry += (my - ry) * .12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('.hoverable, a, button, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '16px'; cursor.style.height = '16px';
+      ring.style.width = '50px'; ring.style.height = '50px';
+      ring.style.borderColor = 'rgba(201,168,76,.7)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '36px'; ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(201,168,76,.4)';
+    });
+  });
 }
-animCursor();
-document.querySelectorAll('.hoverable, a, button, input, textarea').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '16px'; cursor.style.height = '16px';
-    ring.style.width = '50px'; ring.style.height = '50px';
-    ring.style.borderColor = 'rgba(201,168,76,.7)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '10px'; cursor.style.height = '10px';
-    ring.style.width = '36px'; ring.style.height = '36px';
-    ring.style.borderColor = 'rgba(201,168,76,.4)';
-  });
-});
 
 /* ═══════════════════════════════════════════
    PARTICLES CANVAS
@@ -894,7 +952,7 @@ const certificateFiles = [
 function fileCardMarkup(file) {
   const href = encodeURI(file.path);
   const preview = file.type === 'Image'
-    ? `<img src="${href}" alt="${file.title} certificate preview">`
+    ? `<img src="${href}" alt="${file.title} certificate preview" loading="lazy" decoding="async">`
     : `<div class="cert-preview--pdf"><div class="pdf-mark">Certificate PDF</div><div class="pdf-lines"><div class="pdf-title">${file.title}</div><div class="pdf-line"></div><div class="pdf-line" style="width:85%"></div><div class="pdf-line" style="width:72%"></div></div><div class="pdf-footer"><span>${file.year}</span><span>Open PDF</span></div></div>`;
   return `
     <article class="cert-card reveal">
@@ -922,6 +980,7 @@ if (certificateFilesEl) {
    TILT EFFECT
 ═══════════════════════════════════════════ */
 document.querySelectorAll('.tilt').forEach(el => {
+  if (isTouchDevice) return;
   el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect();
     const x = ((e.clientX - r.left) / r.width - .5) * 12;
