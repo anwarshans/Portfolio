@@ -345,7 +345,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
-  .hero-card{display:none}
+  .hero-card{display:flex;min-height:auto;justify-content:center;margin-top:1.25rem;padding-bottom:1rem}
+  .hero-card::before,.hero-card::after{inset:auto;display:none}
+  .hero-photo-wrap{width:min(72vw,300px);height:min(72vw,300px)}
+  .hero-location{left:50%;bottom:8%;transform:translateX(-50%)}
+  .hero-profile{bottom:3%}
   .about-shell{grid-template-columns:1fr}
   .about-profile{border-left:none;border-top:1px solid var(--border)}
   h1.hero-title{font-size:2.2rem}
