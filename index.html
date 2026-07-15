@@ -7,6 +7,9 @@
 <meta name="description" content="Anwarsha N S is a Full Stack Developer and Software Engineer from Kerala specializing in Python, Django, Java, PHP, Angular, JavaScript, MySQL, and modern web development. Explore projects, skills, certifications, experience, and resume.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Anwarsha N S">
+<meta name="name" content="Anwarsha N S">
+<meta name="designer" content="Anwarsha N S">
+<meta name="publisher" content="Anwarsha N S">
 <meta name="theme-color" content="#09090F">
 <meta name="keywords" content="Anwarsha N S, Software Developer, Full Stack Developer, Web Developer, Software Engineer, Associate Analyst, Application Developer, Backend Developer, Frontend Developer, Python Developer, Django Developer, Angular Developer, PHP Developer, JavaScript Developer, BCA Graduate, Kerala, Portfolio">
 <meta property="og:type" content="website">
@@ -55,6 +58,8 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;cursor:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 ::selection{background:rgba(201,168,76,.2);color:var(--gold2)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ── CUSTOM CURSOR ── */
 #cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen}
@@ -236,13 +241,18 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.75rem);font-weight:800;letter-spac
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .4s;cursor:pointer;transform-style:preserve-3d;position:relative}
 .proj-card:hover{border-color:var(--border3);box-shadow:0 24px 64px rgba(0,0,0,.6),var(--glow)}
 .proj-card.featured{border-color:rgba(201,168,76,.2)}
-.proj-banner{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.proj-banner-bg{position:absolute;inset:0;background:var(--surface2)}
-.proj-banner-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:30px 30px}
-.proj-banner-name{position:relative;z-index:1;font-size:2.5rem;font-weight:800;font-family:'JetBrains Mono',monospace;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.05em}
-.proj-featured-tag{position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--bg);padding:.2rem .6rem;border-radius:2px;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.proj-banner{height:240px;position:relative;overflow:hidden}
+.proj-banner-bg{position:absolute;inset:0;background:var(--surface2);z-index:0}
+.proj-carousel{position:absolute;inset:0;z-index:0;display:flex;overflow:hidden}
+.proj-slide{position:absolute;inset:0;opacity:0;transform:scale(.98);transition:opacity .35s ease,transform .35s ease}
+.proj-slide.active{opacity:1;transform:scale(1)}
+.proj-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-banner-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:30px 30px}
+.proj-banner-caption{padding:1rem 1.75rem 0;position:relative;z-index:1}
+.proj-banner-name{position:relative;display:inline-block;font-size:2.4rem;font-weight:900;font-family:'JetBrains Mono',monospace;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.04em;line-height:1}
+.proj-featured-tag{position:absolute;top:1rem;left:1rem;z-index:2;background:var(--gold);color:var(--bg);padding:.2rem .6rem;border-radius:2px;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .proj-body{padding:1.75rem}
-.proj-title{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.02em}
+.proj-title{font-size:.95rem;font-weight:600;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--text2)}
 .proj-desc{color:var(--text2);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.25rem}
 .proj-links{display:flex;gap:1.25rem}
@@ -281,6 +291,17 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.75rem);font-weight:800;letter-spac
 .modal-body{padding:2rem}
 .modal-close{float:right;background:var(--surface2);border:1px solid var(--border);border-radius:4px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;line-height:1;transition:all .2s}
 .modal-close:hover{border-color:var(--gold);color:var(--gold)}
+
+.project-carousel{position:relative;margin-bottom:1.75rem;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface2)}
+.carousel-track{display:flex;transition:transform .35s ease;will-change:transform}
+.carousel-slide{min-width:100%;overflow:hidden}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-controls{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 1rem;pointer-events:none}
+.carousel-btn{pointer-events:auto;min-width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.55);color:var(--text);font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.carousel-btn:hover{background:rgba(201,168,76,.92);border-color:var(--gold);color:var(--bg)}
+.carousel-dots{display:flex;justify-content:center;gap:.5rem;padding:.85rem 0;background:rgba(0,0,0,.04)}
+.carousel-dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;transition:transform .2s,background .2s}
+.carousel-dot.active{background:var(--gold);transform:scale(1.1)}
 
 /* ── CERTS ── */
 #certificates{background:var(--bg2)}
@@ -383,12 +404,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .modal-overlay{padding:1rem}
   .modal-header,.modal-body{padding:1.25rem}
   .projects-grid,.certs-grid,.ach-grid{grid-template-columns:1fr}
+  .proj-card{border-radius:16px}
+  .proj-banner{height:180px}
+  .proj-banner-caption{padding:1rem 1.25rem 0}
+  .proj-body{padding:1.25rem}
+  .proj-title{font-size:1rem}
+  .proj-desc{font-size:.92rem}
+  .proj-links{flex-direction:column;gap:.75rem}
+  .proj-links .proj-link{width:100%;justify-content:center;padding:.85rem 1rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);}
+  .proj-links .proj-link:hover{color:var(--gold);background:rgba(201,168,76,.07)}
+  .proj-banner-grid{opacity:.35}
+  .proj-slide img{object-position:center 35%}
   .exp-timeline{padding-left:1.5rem}
   .exp-timeline::before{left:.5rem}
   .exp-dot{left:-1.55rem}
-  .proj-body{padding:1.25rem}
-  .proj-links{flex-direction:column;gap:.75rem}
-  .proj-banner{height:150px}
   .cert-card,.skill-cat,.edu-card,.ach-card{padding:1.1rem}
   .cert-files-grid{grid-template-columns:1fr}
   .skills-layout{grid-template-columns:1fr !important;gap:2rem !important;margin-bottom:2rem !important}
@@ -439,6 +468,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 </script>
 </head>
 <body>
+<div class="sr-only" aria-hidden="true">Anwarsha N S | Full Stack Developer | Software Engineer | Web Developer | Python | Django | Java | PHP | Angular | JavaScript | MySQL | Kerala</div>
+<div class="sr-only" aria-hidden="true">Anwarsha N S portfolio, Anwarsha N S resume, Anwarsha N S projects, Anwarsha N S skills, Anwarsha N S achievements, Anwarsha N S certificates</div>
 
 <!-- CURSOR -->
 <div id="cursor"></div>
@@ -645,8 +676,23 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     <h2 class="section-title reveal delay-1">What I've Built</h2>
     <p class="section-desc reveal delay-2">A selection of my best work — from concept to deployment.</p>
     <div class="projects-grid">
-      <div class="proj-card featured tilt reveal" onclick="openProject('skillera')">
-        <div class="proj-banner"><div class="proj-banner-bg"></div><div class="proj-banner-grid"></div><div class="proj-banner-name">Skillera</div><div class="proj-featured-tag">Featured</div></div>
+      <div class="proj-card featured tilt reveal" onclick="openProject('skillera')" data-carousel="skillera">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera.png" alt="Skillera screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera%202.png" alt="Skillera screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Skillera</div>
+          <!-- <div class="proj-featured-tag">Featured</div> -->
+        </div>
         <div class="proj-body">
           <div class="proj-title">Skillera — Online Skill Learning Platform</div>
           <div class="proj-desc">A full-featured e-learning platform for teaching and learning personal skills, powered by Python Django with AI-assisted learning features, secure course management, and responsive design.</div>
@@ -655,14 +701,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
             </a>
-            <a class="proj-link hoverable" style="color:var(--gold);cursor:pointer" onclick="event.stopPropagation();openProject('skillera')">
+            <a href="#" class="proj-link hoverable case-study-link" data-project="skillera" style="color:var(--gold);cursor:pointer">
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
             </a>
           </div>
         </div>
       </div>
-      <div class="proj-card tilt reveal delay-1" onclick="openProject('urbandrive')">
-        <div class="proj-banner"><div class="proj-banner-bg"></div><div class="proj-banner-grid"></div><div class="proj-banner-name">UrbanDrive</div></div>
+      <div class="proj-card tilt reveal delay-1" onclick="openProject('urbandrive')" data-carousel="urbandrive">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive.png" alt="Urban Drive screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive%202.png" alt="Urban Drive screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">UrbanDrive</div>
+        </div>
         <div class="proj-body">
           <div class="proj-title">Urban Drive — Premium Car Rental Platform</div>
           <div class="proj-desc">A full-stack vehicle rental platform enabling users to list, browse, and rent vehicles with complete booking workflows, authentication, and optimized database performance.</div>
@@ -671,7 +731,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
             </a>
-            <a class="proj-link hoverable" style="color:var(--gold);cursor:pointer" onclick="event.stopPropagation();openProject('urbandrive')">
+            <a href="#" class="proj-link hoverable case-study-link" data-project="urbandrive" style="color:var(--gold);cursor:pointer">
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
             </a>
           </div>
@@ -999,9 +1059,42 @@ document.querySelectorAll('.tilt').forEach(el => {
   });
 });
 
+function rotateProjectCarousel() {
+  document.querySelectorAll('[data-carousel]').forEach(card => {
+    const slides = card.querySelectorAll('.proj-slide');
+    if (!slides.length) return;
+    const activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+    const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
+    slides.forEach((slide, index) => slide.classList.toggle('active', index === nextIndex));
+  });
+}
+setInterval(rotateProjectCarousel, 4500);
+
+document.querySelectorAll('.case-study-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    const projectId = link.dataset.project;
+    if (projectId) openProject(projectId);
+  });
+});
+
 /* ═══════════════════════════════════════════
    PROJECT MODAL
 ═══════════════════════════════════════════ */
+let carouselIndex = 0;
+let carouselImages = [];
+const projectCarouselImages = {
+  urbandrive: [
+    'Uploads/Anwarsha N S - Project - Urban Drive.png',
+    'Uploads/Anwarsha N S - Project - Urban Drive 2.png'
+  ].map(encodeURI),
+  skillera: [
+    'Uploads/Anwarsha N S - Project - Skillera.png',
+    'Uploads/Anwarsha N S - Project - Skillera 2.png'
+  ].map(encodeURI)
+};
+const projectCarouselCount = id => projectCarouselImages[id] ? projectCarouselImages[id].length : 0;
 const projects = {
   skillera: {
     title: 'Skillera — Online Skill Learning Platform',
@@ -1009,7 +1102,7 @@ const projects = {
     org: 'Santhigiri College of Computer Sciences · Academic Project',
     tech: ['Python','Django','MySQL','Bootstrap','AI Features'],
     desc: 'Skillera is a comprehensive online platform designed for teaching and learning personal skills. The platform features a robust course management system, secure user authentication, and AI-assisted learning features that enhance engagement and personalisation.',
-    features: ['Course creation and management dashboard','Secure authentication with session management','AI-assisted learning recommendations','Responsive design across all devices','Efficient database operations for fast querying','Student progress tracking'],
+    features: ['Course creation and management dashboard','Secure authentication with session management','AI-assisted learning recommendations','Responsive design across all devices','Efficient database operations for fast querying','Student progress tracking']
   },
   urbandrive: {
     title: 'Urban Drive — Premium Car Rental Platform',
@@ -1017,11 +1110,51 @@ const projects = {
     org: 'Santhigiri College of Computer Sciences · Mini Project',
     tech: ['PHP','MySQL','JavaScript','Bootstrap'],
     desc: 'Urban Drive is a premium vehicle rental platform built with PHP and MySQL. Users can list their vehicles for rent and browse available vehicles for booking. The platform includes complete rental workflow management with optimized database performance.',
-    features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI'],
+    features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI']
   }
 };
+function updateProjectCarousel() {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  if (track) {
+    track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+  }
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('active', index === carouselIndex);
+  });
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === carouselIndex);
+  });
+}
+function setProjectCarousel(index) {
+  if (!carouselImages.length) return;
+  carouselIndex = (index + carouselImages.length) % carouselImages.length;
+  updateProjectCarousel();
+}
+function prevProjectCarousel() { setProjectCarousel(carouselIndex - 1); }
+function nextProjectCarousel() { setProjectCarousel(carouselIndex + 1); }
 function openProject(id) {
   const p = projects[id];
+  carouselImages = projectCarouselImages[id] || [];
+  carouselIndex = 0;
+  const carouselMarkup = carouselImages.length ? `
+      <div class="project-carousel">
+        <div class="carousel-track">
+          ${carouselImages.map((src, index) => `
+            <div class="carousel-slide${index === 0 ? ' active' : ''}">
+              <img src="${src}" alt="${p.title} screenshot ${index + 1}" loading="lazy" decoding="async">
+            </div>`).join('')}
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" type="button" onclick="prevProjectCarousel()">‹</button>
+          <button class="carousel-btn" type="button" onclick="nextProjectCarousel()">›</button>
+        </div>
+        <div class="carousel-dots">
+          ${carouselImages.map((_, index) => `<button class="carousel-dot${index === 0 ? ' active' : ''}" type="button" onclick="setProjectCarousel(${index})" aria-label="Show image ${index + 1}"></button>`).join('')}
+        </div>
+      </div>` : '';
+
   document.getElementById('modalBox').innerHTML = `
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1030,6 +1163,7 @@ function openProject(id) {
       <div style="font-size:.78rem;color:var(--text3)">${p.org}</div>
     </div>
     <div class="modal-body">
+      ${carouselMarkup}
       <p style="color:var(--text2);line-height:1.8;margin-bottom:1.5rem;font-size:.9rem">${p.desc}</p>
       <div style="font-size:.68rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:.85rem">Key Features</div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem">
@@ -1043,6 +1177,7 @@ function openProject(id) {
     </div>`;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  if (carouselImages.length) updateProjectCarousel();
 }
 function closeModal(e) {
   if (!e || e.target === document.getElementById('modalOverlay')) {
@@ -1058,11 +1193,18 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 function handleSubmit() {
   const n = document.getElementById('fn').value.trim();
   const em = document.getElementById('fe').value.trim();
+  const s = document.getElementById('fs').value.trim();
   const m = document.getElementById('fm').value.trim();
-  if (!n || !em || !m) { alert('Please fill in your name, email, and message.'); return; }
+  if (!n || !em || !m) {
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+  const subject = s || 'New portfolio inquiry from website';
+  const body = `Name: ${n}%0D%0AEmail: ${em}%0D%0A%0D%0A${encodeURIComponent(m)}`;
+  window.location.href = `mailto:anwarshans.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   const msg = document.getElementById('formMsg');
+  msg.textContent = 'Opening your email app…';
   msg.style.display = 'block';
-  ['fn','fe','fs','fm'].forEach(id => document.getElementById(id).value = '');
   setTimeout(() => msg.style.display = 'none', 5000);
 }
 </script>
