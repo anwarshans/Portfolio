@@ -23,7 +23,10 @@
 <meta name="twitter:description" content="Software Developer Portfolio">
 <meta name="twitter:image" content="https://anwarshans.vercel.app/Uploads/preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+<!-- Favicon: provide ICO at root for broad crawler/browser support -->
+<link rel="icon" href="/favicon.ico">
+<!-- Also include PNG favicon (absolute URL helps crawlers like Google) -->
+<link rel="icon" type="image/png" sizes="48x48" href="https://anwarshans.vercel.app/favicon.png">
 <link rel="shortcut icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="canonical" href="https://anwarshans.vercel.app/">
@@ -252,8 +255,9 @@ h2.section-title{font-size:clamp(1.8rem,3vw,2.75rem);font-weight:800;letter-spac
 .proj-banner-name{position:relative;display:inline-block;font-size:2.4rem;font-weight:900;font-family:'JetBrains Mono',monospace;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.04em;line-height:1}
 .proj-featured-tag{position:absolute;top:1rem;left:1rem;z-index:2;background:var(--gold);color:var(--bg);padding:.2rem .6rem;border-radius:2px;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .proj-body{padding:1.75rem}
-.proj-title{font-size:.95rem;font-weight:600;margin-bottom:.5rem;letter-spacing:-.02em;color:var(--text2)}
-.proj-desc{color:var(--text2);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
+.proj-banner-name{position:relative;display:block;font-size:clamp(1.7rem,2.2vw,1.6rem);font-weight:700;font-family:'Inter',sans-serif;color:var(--gold);background:none;-webkit-background-clip:unset;-webkit-text-fill-color:unset;background-clip:unset;letter-spacing:0.01em;line-height:1.05;margin-bottom:.35rem}
+.proj-title{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;letter-spacing:0;color:var(--text)}
+.proj-desc{color:var(--text2);font-size:.96rem;line-height:1.6;margin-bottom:1rem}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.25rem}
 .proj-links{display:flex;gap:1.25rem}
 .proj-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--text3);font-size:.78rem;text-decoration:none;transition:color .2s;letter-spacing:.03em}
@@ -523,6 +527,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         <a href="#contact" class="btn btn-ghost hoverable">Get In Touch</a>
         <a href="Uploads/Anwarsha_NS_Resume.pdf" class="btn btn-ghost hoverable" target="_blank" rel="noopener">Download Resume</a>
       </div>
+      
       <div class="hero-stats reveal delay-4">
         <div class="stat-item"><div class="stat-num" data-count="5+" data-suffix="">0</div><div class="stat-label">Projects</div></div>
         <div class="stat-item"><div class="stat-num" data-count="10+" data-suffix="+">0</div><div class="stat-label">Technologies</div></div>
@@ -531,7 +536,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       </div>
     </div>
     <div class="hero-card tilt reveal-right delay-2" id="heroCard">
-      <div class="hero-photo-wrap"><img class="hero-photo" src="favicon.png" alt="Anwarsha N S Full Stack Developer and Software Engineer" loading="eager" decoding="async"></div>
+      <div class="hero-photo-wrap"><img class="hero-photo" src="Uploads/Internship.jpg" alt="Anwarsha N S Full Stack Developer and Software Engineer" loading="eager" decoding="async"></div>
       <div class="hero-profile">
         <div class="hc-name">Anwarsha N S</div>
         <div class="hc-title">Full Stack Developer</div>
@@ -568,6 +573,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
+      
       <div class="about-profile">
         <div class="about-quote">
           <p>I'm <strong>Anwarsha N S</strong>, a BCA graduate and aspiring Software Developer with a strong foundation in full-stack web development. I have hands-on experience building responsive and database-driven applications using <strong>Python, Django, PHP, MySQL, Angular, JavaScript, HTML, CSS, and Bootstrap</strong>. Through my Front-End Development internship at Nest Digital Academy and academic projects, I have developed practical skills in creating user-friendly interfaces, integrating backend services, and writing clean, maintainable code.</p>
@@ -732,6 +738,96 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
             </a>
             <a href="#" class="proj-link hoverable case-study-link" data-project="urbandrive" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card tilt reveal delay-2" onclick="openProject('stylora')" data-carousel="stylora">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing.png" alt="Stylora Clothing screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing%202.png" alt="Stylora Clothing screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Stylora Clothing</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Stylora Clothing — Luxury Fashion Store (Angular)</div>
+          <div class="proj-desc">An elegant e-commerce front-end built with Angular showcasing responsive product galleries, rating UI, and product detail workflows integrated with a backend API.</div>
+          <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="stylora" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card tilt reveal delay-2" onclick="openProject('clickmart')" data-carousel="clickmart">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store.png" alt="ClickMart screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store%202.png" alt="ClickMart screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">ClickMart</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">ClickMart — Online Store (Angular)</div>
+          <div class="proj-desc">A modern e-commerce SPA built with Angular featuring a product carousel, search and filter, and a checkout flow connected to backend APIs.</div>
+          <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="clickmart" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card tilt reveal delay-2" onclick="openProject('kerala')" data-carousel="kerala">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism.png" alt="Kerala Tourism screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism%202.png" alt="Kerala Tourism screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Kerala Tourism</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Kerala Tourism — Travel Showcase (Angular)</div>
+          <div class="proj-desc">A visually-rich tourism site built with Angular highlighting destinations, district cards, and immersive hero images for an engaging travel browsing experience.</div>
+          <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="kerala" style="color:var(--gold);cursor:pointer">
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
             </a>
           </div>
@@ -1092,6 +1188,18 @@ const projectCarouselImages = {
   skillera: [
     'Uploads/Anwarsha N S - Project - Skillera.png',
     'Uploads/Anwarsha N S - Project - Skillera 2.png'
+  ].map(encodeURI),
+  stylora: [
+    'Uploads/Anwarsha N S - Project - Stylora Clothing.png',
+    'Uploads/Anwarsha N S - Project - Stylora Clothing 2.png'
+  ].map(encodeURI),
+  clickmart: [
+    'Uploads/Anwarsha N S - Project - Online Store.png',
+    'Uploads/Anwarsha N S - Project - Online Store 2.png'
+  ].map(encodeURI)
+  ,kerala: [
+    'Uploads/Anwarsha N S - Project - Kerala Tourism.png',
+    'Uploads/Anwarsha N S - Project - Kerala Tourism 2.png'
   ].map(encodeURI)
 };
 const projectCarouselCount = id => projectCarouselImages[id] ? projectCarouselImages[id].length : 0;
@@ -1111,6 +1219,30 @@ const projects = {
     tech: ['PHP','MySQL','JavaScript','Bootstrap'],
     desc: 'Urban Drive is a premium vehicle rental platform built with PHP and MySQL. Users can list their vehicles for rent and browse available vehicles for booking. The platform includes complete rental workflow management with optimized database performance.',
     features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI']
+  },
+  stylora: {
+    title: 'Stylora Clothing — Luxury Fashion Store',
+    period: 'Mar 2025',
+    org: 'Personal / Academic Project',
+    tech: ['Angular','TypeScript','Bootstrap','REST API'],
+    desc: 'Stylora Clothing is a polished front-end built with Angular focusing on product presentation, clean UI, and responsive layouts for a premium shopping experience.',
+    features: ['Responsive product gallery','Product detail & rating UI','Reusable Angular components','API-driven catalog and search','Mobile-first responsive design']
+  },
+  clickmart: {
+    title: 'ClickMart — Online Store',
+    period: 'Apr 2025',
+    org: 'Personal / Academic Project',
+    tech: ['Angular','TypeScript','Bootstrap','REST API'],
+    desc: 'ClickMart is an Angular single-page application implementing a product catalog, search/filter functionality, and a checkout flow integrated with backend APIs.',
+    features: ['Search and filter UI','Shopping cart & checkout flow','Product carousel and hero banners','State management with services','Responsive and accessible UI']
+  }
+  ,kerala: {
+    title: 'Kerala Tourism — Travel Showcase',
+    period: 'Feb 2025',
+    org: 'Personal / Academic Project',
+    tech: ['Angular','TypeScript','Bootstrap','Responsive Design'],
+    desc: 'Kerala Tourism is a visually-rich Angular site highlighting districts, immersive hero images, and responsive cards to showcase travel destinations and experiences.',
+    features: ['Full-width hero with carousel','District cards with descriptions','Responsive grid layout','Image-focused design','Accessible and SEO-friendly markup']
   }
 };
 function updateProjectCarousel() {
