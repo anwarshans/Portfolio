@@ -157,7 +157,7 @@ h1.hero-title{font-size:clamp(2.45rem,4.4vw,4rem);font-weight:800;line-height:1.
 .hero-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#fff}
 .hero-profile{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.25rem;text-align:center}
 .hc-name{font-weight:700;font-size:1.05rem}
-.hc-title{text-align:center;font-size:.72rem;color:var(--text3);letter-spacing:.14em;text-transform:uppercase}
+.hc-title{text-align:center;font-size:.972rem;color:var(--text2);letter-spacing:.14em;text-transform:uppercase}
 .hero-location{position:absolute;left:4%;bottom:18%;display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,16,28,.92);border:1px solid rgba(201,168,76,.18);border-radius:14px;padding:.75rem 1rem;color:var(--text);font-size:.82rem;font-weight:600;box-shadow:0 14px 40px rgba(0,0,0,.35);backdrop-filter:blur(10px)}
 .hero-location .pin{width:7px;height:7px;border-radius:50%;background:#ff4f8b;box-shadow:0 0 0 4px rgba(255,79,139,.15)}
 
@@ -398,7 +398,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hero-card{order:0;display:flex;min-height:auto;justify-content:center;margin-top:0;padding-bottom:0}
   .hero-card::before,.hero-card::after{inset:auto;display:none}
   .hero-photo-wrap{width:min(72vw,300px);height:min(72vw,300px)}
-  .hero-location{left:50%;bottom:8%;transform:translateX(-50%)}
+  .hero-location{left:50%;bottom:12%;transform:translateX(-50%)}
   .hero-profile{bottom:3%}
   .about-shell{grid-template-columns:1fr}
   .about-profile{border-left:none;border-top:1px solid var(--border)}
@@ -406,6 +406,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hero-title{max-width:100%}
   .hero-name{font-size:.70rem}
   .hero-role{font-size:.85rem}
+}
+
+/* Make hero profile stack below the circular photo on smaller screens */
+@media (max-width:900px) {
+  .hero-card{flex-direction:column;align-items:center;position:relative}
+  .hero-photo-wrap{margin:0}
+  .hero-profile{position:static;left:auto;bottom:auto;transform:none;margin-top:1rem;text-align:center}
+  .hc-name{font-size:1rem}
+  .hc-title{font-size:.82rem;letter-spacing:.08em}
+  /* center location badge and overlap photo like original layout */
+  .hero-location{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);width:max-content;margin:0;z-index:5;font-size:.75rem;padding:.5rem .75rem}
+  .hero-location .pin{width:6px;height:6px}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
@@ -465,11 +477,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .profile-tag,.tag,.badge,.cert-file-chip{font-size:.62rem}
   .skills-grid{grid-template-columns:1fr}
   .hero-profile{bottom:4%}
-  /* Ensure role/title is visible on small screens */
-  .hero-profile{bottom:8%;z-index:6}
-  .hero-profile .hc-name{font-size:0.95rem}
-  .hero-profile .hc-title{font-size:.9rem;color:var(--gold);font-weight:700;letter-spacing:.12em}
-  .hero-photo-wrap{z-index:4}
   .hero-location{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 1rem);font-size:.76rem;padding:.65rem .85rem}
   .about-visual{padding:.35rem}
   .about-photo-card img{border-radius:10px 10px 0 0}
@@ -479,6 +486,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .modal-box{border-radius:10px}
   .proj-banner-name{font-size:2rem}
   .contact-left h3{font-size:1.3rem}
+}
+
+/* Ensure stacked profile and title on very small screens */
+@media (max-width:480px) {
+  .hero-profile{position:static;bottom:auto;left:auto;transform:none;margin-top:.6rem}
+  .hc-name{font-size:.95rem}
+  .hc-title{font-size:.78rem}
+  /* tighter absolute positioning for very small screens */
+  .hero-location{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);width:max-content;margin:0;z-index:5;font-size:.75rem;padding:.45rem .7rem}
+  .hero-location .pin{width:8px;height:8px}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal,.reveal-left,.reveal-right{transition:none;opacity:1;transform:none}
