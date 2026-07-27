@@ -465,6 +465,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .profile-tag,.tag,.badge,.cert-file-chip{font-size:.62rem}
   .skills-grid{grid-template-columns:1fr}
   .hero-profile{bottom:4%}
+  /* Ensure role/title is visible on small screens */
+  .hero-profile{bottom:8%;z-index:6}
+  .hero-profile .hc-name{font-size:0.95rem}
+  .hero-profile .hc-title{font-size:.9rem;color:var(--gold);font-weight:700;letter-spacing:.12em}
+  .hero-photo-wrap{z-index:4}
   .hero-location{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 1rem);font-size:.76rem;padding:.65rem .85rem}
   .about-visual{padding:.35rem}
   .about-photo-card img{border-radius:10px 10px 0 0}
