@@ -477,7 +477,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .profile-tag,.tag,.badge,.cert-file-chip{font-size:.62rem}
   .skills-grid{grid-template-columns:1fr}
   .hero-profile{bottom:4%}
-  .hero-location{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 1rem);font-size:.76rem;padding:.65rem .85rem}
+  .hero-location{left:50%;bottom:18%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 1rem);font-size:.76rem;padding:.65rem .85rem}
   .about-visual{padding:.35rem}
   .about-photo-card img{border-radius:10px 10px 0 0}
   .about-photo-caption{border-radius:0 0 10px 10px}
@@ -494,7 +494,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hc-name{font-size:.95rem}
   .hc-title{font-size:.78rem}
   /* tighter absolute positioning for very small screens */
-  .hero-location{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);width:max-content;margin:0;z-index:5;font-size:.75rem;padding:.45rem .7rem}
+  .hero-location{position:absolute;left:50%;bottom:18%;transform:translateX(-50%);width:max-content;margin:0;z-index:5;font-size:.75rem;padding:.45rem .7rem}
   .hero-location .pin{width:8px;height:8px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -1101,15 +1101,17 @@ let countersRun = false;
 function runCounters() {
   if (countersRun) return; countersRun = true;
   document.querySelectorAll('[data-count]').forEach(el => {
-    const target = parseFloat(el.dataset.count);
+    const raw = el.dataset.count;
+    const target = parseFloat(raw);
     const suffix = el.dataset.suffix || '';
-    const isFloat = target % 1 !== 0;
+    const decimalPlaces = raw.includes('.') ? raw.split('.')[1].length : 0;
+    const isFloat = decimalPlaces > 0;
     let v = 0, steps = 50;
     const inc = target / steps;
     const t = setInterval(() => {
       v += inc;
       if (v >= target) { v = target; clearInterval(t); }
-      el.textContent = (isFloat ? v.toFixed(1) : Math.ceil(v)) + suffix;
+      el.textContent = (isFloat ? v.toFixed(decimalPlaces) : Math.ceil(v)) + suffix;
     }, 30);
   });
 }
