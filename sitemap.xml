@@ -7,6 +7,25 @@
     <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Intership%202.jpg</image:loc>
+      <image:title>Anwarsha N S internship</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Intership.jpg</image:loc>
+      <image:title>Anwarsha N S internship</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20prefessional.jpg</image:loc>
+      <image:title>Anwarsha N S professional photo</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha.jpeg</image:loc>
+      <image:title>Anwarsha N S</image:title>
+    </image:image>
   </url>
 
 </urlset>
