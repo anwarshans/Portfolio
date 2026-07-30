@@ -12,7 +12,10 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed.' });
   }
 
-  const { name, email, subject, message } = req.body || {};
+  const body = typeof req.body === 'string'
+    ? safeJsonParse(req.body)
+    : req.body || {};
+  const { name, email, subject, message } = body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Name, email, and message are required.' });
@@ -20,7 +23,7 @@ module.exports = async function handler(req, res) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'Missing RESEND_API_KEY environment variable.' });
+    return res.status(500).json({ error: 'Missing RESEND_API_KEY environment variable in Vercel.' });
   }
 
   const payload = {
@@ -54,12 +57,22 @@ module.exports = async function handler(req, res) {
     const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data.message || 'Email service rejected the request.' });
+      return res.status(response.status).json({
+        error: data.message || data.error || 'Email service rejected the request.'
+      });
     }
 
     return res.status(200).json({ message: 'Message sent successfully.' });
   } catch (error) {
-    return res.status(500).json({ error: 'Unable to send email right now.' });
+    return res.status(500).json({ error: error.message || 'Unable to send email right now.' });
+  }
+}
+
+function safeJsonParse(value) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return {};
   }
 }
 
