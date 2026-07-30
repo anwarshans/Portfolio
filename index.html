@@ -1065,16 +1065,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         <div class="cinfo-item"><div class="cinfo-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div><div><div class="cinfo-label">GitHub</div><a href="https://github.com/anwarshans" target="_blank" class="cinfo-value">github.com/anwarshans</a></div></div>
       </div>
       <div class="reveal-right delay-1">
-        <div class="contact-form">
+        <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-group"><label for="fn">Name</label><input type="text" id="fn" placeholder="Your full name"></div>
             <div class="form-group"><label for="fe">Email</label><input type="email" id="fe" placeholder="your@email.com"></div>
           </div>
           <div class="form-group"><label for="fs">Subject</label><input type="text" id="fs" placeholder="Job opportunity / Project inquiry / Collaboration"></div>
           <div class="form-group"><label for="fm">Message</label><textarea id="fm" rows="5" placeholder="Tell me about the role or project..."></textarea></div>
-          <button class="submit-btn hoverable" onclick="handleSubmit()">Send Message →</button>
+          <button class="submit-btn hoverable" type="submit">Send Message →</button>
           <div class="form-msg" id="formMsg">✓ Message sent. I'll respond within 24 hours.</div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -1083,7 +1083,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-copy">© 2025 Anwarsha N S · Crafted from Kerala, India</div>
+    <div class="footer-copy">© Anwarsha N S · Kerala, India</div>
     <div class="footer-links">
       <a href="https://linkedin.com/in/anwarshans" target="_blank">LinkedIn</a>
       <a href="https://github.com/anwarshans" target="_blank">GitHub</a>
@@ -1508,22 +1508,55 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 /* ═══════════════════════════════════════════
    CONTACT FORM
 ═══════════════════════════════════════════ */
-function handleSubmit() {
-  const n = document.getElementById('fn').value.trim();
-  const em = document.getElementById('fe').value.trim();
-  const s = document.getElementById('fs').value.trim();
-  const m = document.getElementById('fm').value.trim();
-  if (!n || !em || !m) {
-    alert('Please fill in your name, email, and message.');
-    return;
-  }
-  const subject = s || 'New portfolio inquiry from website';
-  const body = `Name: ${n}%0D%0AEmail: ${em}%0D%0A%0D%0A${encodeURIComponent(m)}`;
-  window.location.href = `mailto:anwarshans.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  const msg = document.getElementById('formMsg');
-  msg.textContent = 'Opening your email app…';
-  msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 5000);
+const contactForm = document.getElementById('contactForm');
+const formMsg = document.getElementById('formMsg');
+if (contactForm) {
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const name = document.getElementById('fn').value.trim();
+    const email = document.getElementById('fe').value.trim();
+    const subject = document.getElementById('fs').value.trim();
+    const message = document.getElementById('fm').value.trim();
+
+    if (!name || !email || !message) {
+      formMsg.textContent = 'Please fill in your name, email, and message.';
+      formMsg.style.display = 'block';
+      formMsg.style.color = 'var(--gold)';
+      return;
+    }
+
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formMsg.style.display = 'block';
+    formMsg.style.color = 'var(--text2)';
+    formMsg.textContent = 'Sending message...';
+
+    try {
+      const response = await fetch('send_mail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message })
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+
+      formMsg.textContent = '✓ Message sent successfully.';
+      formMsg.style.color = 'var(--gold)';
+      contactForm.reset();
+    } catch (error) {
+      formMsg.textContent = error.message || 'Failed to send message. Please try again.';
+      formMsg.style.color = '#f87171';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message →';
+    }
+  });
 }
 </script>
 </body>
