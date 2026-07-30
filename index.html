@@ -1074,8 +1074,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
             <div class="form-group"><label for="fn">Name</label><input type="text" id="fn" placeholder="Your full name"></div>
             <div class="form-group"><label for="fe">Email</label><input type="email" id="fe" placeholder="your@email.com"></div>
           </div>
-          <input type="hidden" name="subject" id="subjectBodyField" value="New portfolio inquiry from website">
-          <div class="form-group"><label for="fs">Subject</label><input type="text" id="fs" placeholder="Job opportunity / Project inquiry / Collaboration"></div>
+          <div class="form-group"><label for="fs">Subject</label><input type="text" id="fs" name="subject" placeholder="Job opportunity / Project inquiry / Collaboration"></div>
           <div class="form-group"><label for="fm">Message</label><textarea id="fm" rows="5" placeholder="Tell me about the role or project..."></textarea></div>
           <button class="submit-btn hoverable" type="submit">Send Message →</button>
           <div class="form-msg" id="formMsg">✓ Message sent. I'll respond within 24 hours.</div>
@@ -1531,11 +1530,10 @@ function handleSubmit(event) {
   msg.textContent = 'Sending message...';
   const subject = s || 'New portfolio inquiry from website';
   document.getElementById('subjectField').value = subject;
-  document.getElementById('subjectBodyField').value = subject;
+  document.getElementById('fs').value = subject;
   const formData = new FormData(document.getElementById('contactForm'));
   formData.set('name', n);
   formData.set('email', em);
-  formData.set('subject', subject);
   formData.set('message', m);
   fetch('https://formsubmit.co/ajax/anwarshans.dev@gmail.com', {
     method: 'POST',
