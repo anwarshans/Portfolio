@@ -11,7 +11,7 @@
 <meta name="designer" content="Anwarsha N S">
 <meta name="publisher" content="Anwarsha N S">
 <meta name="theme-color" content="#09090F">
-<meta name="keywords" content="Anwarsha, Anwarsha N S, Full Stack Developer, Software Engineer, Web Developer, Python, Django, Java, PHP, Angular, JavaScript, MySQL, JobBridge, Portfolio, Kerala">
+<meta name="keywords" content="Anwarsha, Anwarsha N S, Full Stack Developer, Software Engineer, Web Developer, Python, Django, Java, PHP, Angular, JavaScript, MySQL, JobBridge, Shadow Escape, HTML5 game, browser platform game, Portfolio, Kerala">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anwarsha N S">
 <meta property="og:description" content="Portfolio of Anwarsha N S — Full Stack Developer and Software Engineer. Explore projects built with Python, Django, Java, PHP, Angular, JavaScript, and JobBridge.">
@@ -662,7 +662,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       </div>
       
       <div class="hero-stats reveal delay-4">
-        <div class="stat-item"><div class="stat-num" data-count="6+" data-suffix="">0</div><div class="stat-label">Projects</div></div>
+        <div class="stat-item"><div class="stat-num" data-count="7" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
         <div class="stat-item"><div class="stat-num" data-count="10+" data-suffix="+">0</div><div class="stat-label">Technologies</div></div>
         <div class="stat-item"><div class="stat-num" data-count="9+" data-suffix="">0</div><div class="stat-label">Certifications</div></div>
         <div class="stat-item"><div class="stat-num" data-count="8.95" data-suffix="">0</div><div class="stat-label">CGPA / 10</div></div>
@@ -824,6 +824,37 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     <p class="section-desc reveal delay-2">A selection of my best work — from concept to deployment.</p>
     <div class="projects-grid">
 
+      <div class="proj-card featured tilt reveal" onclick="openProject('shadowescape')" data-carousel="shadowescape">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20Game%201.png" alt="Shadow Escape HTML5 browser game screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20Game%202.png" alt="Shadow Escape platform adventure game screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Shadow Escape</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Shadow Escape - 2D Browser Platform Adventure</div>
+          <div class="proj-desc">Escape the danger. Outsmart the guards. Complete the mission. Shadow Escape is a 2D HTML5 platform adventure with enemy AI, collectible crystals, key-based progression, and responsive controls across desktop and mobile.</div>
+          <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Game Logic</span><span class="badge">Responsive</span></div>
+          <div class="proj-links">
+            <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="shadowescape" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="proj-card featured tilt reveal" onclick="openProject('skillera')" data-carousel="skillera">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -855,7 +886,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
-      
+
       <div class="proj-card tilt reveal delay-1" onclick="openProject('urbandrive')" data-carousel="urbandrive">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1359,6 +1390,10 @@ document.querySelectorAll('.case-study-link').forEach(link => {
 let carouselIndex = 0;
 let carouselImages = [];
 const projectCarouselImages = {
+  shadowescape: [
+    'Uploads/Anwarsha Game 1.png',
+    'Uploads/Anwarsha Game 2.png'
+  ].map(encodeURI),
   jobbridge: [
     'Uploads/Anwarsha N S - Project - JobBridge.png',
     'Uploads/Anwarsha N S - Project - JobBridge 2.png'
@@ -1386,8 +1421,17 @@ const projectCarouselImages = {
 };
 const projectCarouselCount = id => projectCarouselImages[id] ? projectCarouselImages[id].length : 0;
 const projects = {
+  shadowescape: {
+    title: 'Shadow Escape - 2D Browser Platform Adventure',
+    period: '2026',
+    org: 'Portfolio Project',
+    tech: ['HTML5','CSS3','JavaScript','Collision Detection','Responsive Design','SEO'],
+    desc: 'Escape the danger. Outsmart the guards. Complete the mission. Shadow Escape is a 2D browser-based platform adventure built with HTML5, CSS3, and JavaScript where players navigate hazardous levels, avoid intelligent guards, collect energy crystals, find keys, and reach the final exit.',
+    features: ['Smooth 2D platform gameplay with responsive controls','Keyboard and mobile control support','Intelligent enemy guard behavior and obstacle patterns','Collectible energy crystals with score progression','Key-based progression and mission-focused level flow','Health and scoring system with challenge balancing','Fast browser gameplay with no installation required','SEO-optimized and responsive front-end implementation'],
+    live: 'https://shadowescapegame.vercel.app/'
+  },
   jobbridge: {
-    title: 'JobBridge — Inclusive Job Portal',
+    title: 'JobBridge - Inclusive Job Portal',
     period: '2026',
     org: 'Personal / Academic Project',
     tech: ['Python','Django','Bootstrap','Job Portal'],
@@ -1395,7 +1439,7 @@ const projects = {
     features: ['Job discovery tailored by education and skill level','Location-based opportunity matching','Employer-friendly recruitment workflow','Responsive interface for desktop and mobile','Structured portal layout for easy navigation']
   },
   skillera: {
-    title: 'Skillera — Online Skill Learning Platform',
+    title: 'Skillera - Online Skill Learning Platform',
     period: 'Nov 2025 – Mar 2026',
     org: 'Santhigiri College of Computer Sciences · Academic Project',
     tech: ['Python','Django','MySQL','Bootstrap','AI Features'],
@@ -1403,7 +1447,7 @@ const projects = {
     features: ['Course creation and management dashboard','Secure authentication with session management','AI-assisted learning recommendations','Responsive design across all devices','Efficient database operations for fast querying','Student progress tracking']
   },
   urbandrive: {
-    title: 'Urban Drive — Premium Car Rental Platform',
+    title: 'Urban Drive - Premium Car Rental Platform',
     period: 'Jun 2025 – Oct 2025',
     org: 'Santhigiri College of Computer Sciences · Mini Project',
     tech: ['PHP','MySQL','JavaScript','Bootstrap'],
@@ -1411,7 +1455,7 @@ const projects = {
     features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI']
   },
   stylora: {
-    title: 'Stylora Clothing — Luxury Fashion Store',
+    title: 'Stylora Clothing - Luxury Fashion Store',
     period: 'Mar 2025',
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','REST API'],
@@ -1419,7 +1463,7 @@ const projects = {
     features: ['Responsive product gallery','Product detail & rating UI','Reusable Angular components','API-driven catalog and search','Mobile-first responsive design']
   },
   clickmart: {
-    title: 'ClickMart — Online Store',
+    title: 'ClickMart - Online Store',
     period: 'Apr 2025',
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','REST API'],
@@ -1427,7 +1471,7 @@ const projects = {
     features: ['Search and filter UI','Shopping cart & checkout flow','Product carousel and hero banners','State management with services','Responsive and accessible UI']
   }
   ,kerala: {
-    title: 'Kerala Tourism — Travel Showcase',
+    title: 'Kerala Tourism - Travel Showcase',
     period: 'Feb 2025',
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','Responsive Design'],
@@ -1495,7 +1539,10 @@ function openProject(id) {
       <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.75rem">
         ${p.tech.map(t=>`<span class="badge">${t}</span>`).join('')}
       </div>
-      <a href="https://github.com/anwarshans" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;font-size:.8rem">View on GitHub →</a>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener" class="btn btn-gold" style="text-decoration:none;display:inline-flex;font-size:.8rem">Play Now →</a>` : ''}
+        <a href="https://github.com/anwarshans" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;font-size:.8rem">View on GitHub →</a>
+      </div>
     </div>`;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
