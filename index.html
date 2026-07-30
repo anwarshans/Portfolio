@@ -1066,6 +1066,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       </div>
       <div class="reveal-right delay-1">
         <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" id="subjectField" value="New portfolio inquiry from website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group"><label for="fn">Name</label><input type="text" id="fn" placeholder="Your full name"></div>
             <div class="form-group"><label for="fe">Email</label><input type="email" id="fe" placeholder="your@email.com"></div>
@@ -1525,15 +1528,20 @@ function handleSubmit(event) {
   msg.style.display = 'block';
   msg.textContent = 'Sending message...';
   const subject = s || 'New portfolio inquiry from website';
-  fetch('/api/send', {
+  document.getElementById('subjectField').value = subject;
+  const formData = new FormData(document.getElementById('contactForm'));
+  formData.set('name', n);
+  formData.set('email', em);
+  formData.set('message', m);
+  fetch('https://formsubmit.co/ajax/anwarshans.dev@gmail.com', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name: n, email: em, subject, message: m })
+    headers: { 'Accept': 'application/json' },
+    body: formData
   })
     .then(async response => {
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message.');
+        throw new Error(data.message || data.error || 'Failed to send message.');
       }
       document.getElementById('fn').value = '';
       document.getElementById('fe').value = '';
