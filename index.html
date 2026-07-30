@@ -1067,6 +1067,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
       <div class="reveal-right delay-1">
         <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
           <input type="hidden" name="_subject" id="subjectField" value="New portfolio inquiry from website">
+          <input type="hidden" name="subject" id="subjectBodyField" value="New portfolio inquiry from website">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <div class="form-row">
@@ -1529,9 +1530,11 @@ function handleSubmit(event) {
   msg.textContent = 'Sending message...';
   const subject = s || 'New portfolio inquiry from website';
   document.getElementById('subjectField').value = subject;
+  document.getElementById('subjectBodyField').value = subject;
   const formData = new FormData(document.getElementById('contactForm'));
   formData.set('name', n);
   formData.set('email', em);
+  formData.set('subject', subject);
   formData.set('message', m);
   fetch('https://formsubmit.co/ajax/anwarshans.dev@gmail.com', {
     method: 'POST',
