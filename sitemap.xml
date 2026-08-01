@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://anwarshans.vercel.app/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Intership%202.jpg</image:loc>
-      <image:title>Anwarsha N S internship</image:title>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg</image:loc>
+      <image:title>Anwarsha N S Full Stack Developer profile photo</image:title>
     </image:image>
-
     <image:image>
-      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Intership.jpg</image:loc>
-      <image:title>Anwarsha N S internship</image:title>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Internship.jpg</image:loc>
+      <image:title>Anwarsha N S Internship photo</image:title>
     </image:image>
-
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha_Work.jpg</image:loc>
+      <image:title>Anwarsha N S working on software development</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20prefessional.jpg</image:loc>
       <image:title>Anwarsha N S professional photo</image:title>
     </image:image>
-
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha.jpeg</image:loc>
-      <image:title>Anwarsha N S</image:title>
+      <image:title>Anwarsha N S photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20JobBridge.png</image:loc>
+      <image:title>JobBridge Project Screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera.png</image:loc>
+      <image:title>Skillera Project Screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive.png</image:loc>
+      <image:title>Urban Drive Project Screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing.png</image:loc>
+      <image:title>Stylora Clothing Project Screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store.png</image:loc>
+      <image:title>ClickMart Online Store Project Screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism.png</image:loc>
+      <image:title>Kerala Tourism Project Screenshot</image:title>
     </image:image>
   </url>
-
 </urlset>
