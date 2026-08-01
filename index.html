@@ -1324,8 +1324,9 @@ const certificateFiles = [
 
 function fileCardMarkup(file) {
   const href = encodeURI(file.path);
+  const previewPath = encodeURI(`Uploads/cert-thumbs/${file.path.replace(/^Uploads\//, '').replace(/\.[^.]+$/, '')}_thumb.jpg`);
   const preview = file.type === 'Image'
-    ? `<img data-src="${href}" alt="${file.title} certificate preview" loading="lazy" decoding="async" width="800" height="600">`
+    ? `<img data-src="${previewPath}" alt="${file.title} certificate preview" loading="lazy" decoding="async" width="900" height="675">`
     : `<div class="cert-preview--pdf"><div class="pdf-mark">Certificate PDF</div><div class="pdf-lines"><div class="pdf-title">${file.title}</div><div class="pdf-line"></div><div class="pdf-line" style="width:85%"></div><div class="pdf-line" style="width:72%"></div></div><div class="pdf-footer"><span>${file.year}</span><span>Open PDF</span></div></div>`;
   return `
     <article class="cert-card reveal">
