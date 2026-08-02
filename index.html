@@ -65,7 +65,7 @@
         "@id": "https://anwarshans.vercel.app/#primaryimage",
         "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg",
         "contentUrl": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg",
-        "caption": "Anwarsha N S",
+        "caption": "Anwarsha N S Full Stack Developer",
         "width": 2417,
         "height": 2417
       },
@@ -73,13 +73,35 @@
         "@type": "Person",
         "@id": "https://anwarshans.vercel.app/#person",
         "name": "Anwarsha N S",
-        "alternateName": "Anwarsha",
+        "alternateName": ["Anwarsha", "Anwarsha NS"],
         "url": "https://anwarshans.vercel.app/",
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg",
-          "caption": "Anwarsha N S"
-        },
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg",
+            "caption": "Anwarsha N S - Full Stack Developer Profile Photo"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://anwarshans.vercel.app/Uploads/Anwarsha_Work.jpg",
+            "caption": "Anwarsha N S - Software Developer at Work"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20prefessional.jpg",
+            "caption": "Anwarsha N S - Professional Software Engineer Photo"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://anwarshans.vercel.app/Uploads/Internship.jpg",
+            "caption": "Anwarsha N S - NEST Digital Internship Photo"
+          },
+          {
+            "@type": "ImageObject",
+            "url": "https://anwarshans.vercel.app/Uploads/Anwarsha.jpeg",
+            "caption": "Anwarsha N S - Developer Portrait Photo"
+          }
+        ],
         "logo": "https://anwarshans.vercel.app/logo.png",
         "sameAs": [
           "https://github.com/anwarshans",
@@ -93,6 +115,69 @@
           "addressCountry": "IN"
         }
       }
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://anwarshans.vercel.app/#gallery",
+      "name": "Anwarsha N S Portfolio Image Gallery",
+      "description": "Profile photos, project screenshots, and certificates of Anwarsha N S",
+      "url": "https://anwarshans.vercel.app/",
+      "author": {
+        "@type": "Person",
+        "name": "Anwarsha N S"
+      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg",
+          "name": "Anwarsha N S Full Stack Developer Profile Photo"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20JobBridge.png",
+          "name": "Anwarsha N S - JobBridge Recruitment Platform Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera.png",
+          "name": "Anwarsha N S - Skillera E-Learning Platform Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive.png",
+          "name": "Anwarsha N S - Urban Drive Car Rental Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing.png",
+          "name": "Anwarsha N S - Stylora Clothing E-Commerce Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store.png",
+          "name": "Anwarsha N S - ClickMart Online Store Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism.png",
+          "name": "Anwarsha N S - Kerala Tourism Website Project"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Internship%20Certificate.jpeg",
+          "name": "Anwarsha N S - NEST Digital Internship Certificate"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Joy%20of%20Computing%20using%20python%20-%20NPTEL%20Certificate.jpeg",
+          "name": "Anwarsha N S - NPTEL IIT Madras Python Certificate"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://anwarshans.vercel.app/Uploads/Introduction%20to%20Git%20and%20GitHub%20course%20offered%20by%20Google.jpeg",
+          "name": "Anwarsha N S - Google Git and GitHub Certificate"
+        }
+      ]
     }
   ]
 }
@@ -1358,7 +1443,7 @@ function fileCardMarkup(file) {
   const href = encodeURI(file.path);
   const previewPath = encodeURI(`Uploads/cert-thumbs/${file.path.replace(/^Uploads\//, '').replace(/\.[^.]+$/, '')}_thumb.jpg`);
   const preview = file.type === 'Image'
-    ? `<img data-src="${previewPath}" alt="${file.title} certificate preview" loading="lazy" decoding="async" width="900" height="675">`
+    ? `<img src="${previewPath}" alt="Anwarsha N S ${file.title} certificate" loading="lazy" decoding="async" width="900" height="675">`
     : `<div class="cert-preview--pdf"><div class="pdf-mark">Certificate PDF</div><div class="pdf-lines"><div class="pdf-title">${file.title}</div><div class="pdf-line"></div><div class="pdf-line" style="width:85%"></div><div class="pdf-line" style="width:72%"></div></div><div class="pdf-footer"><span>${file.year}</span><span>Open PDF</span></div></div>`;
   return `
     <article class="cert-card reveal">

@@ -3,52 +3,154 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://anwarshans.vercel.app/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Profile & Personal Photos -->
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg</image:loc>
-      <image:title>Anwarsha N S Full Stack Developer profile photo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://anwarshans.vercel.app/Uploads/Internship.jpg</image:loc>
-      <image:title>Anwarsha N S Internship photo</image:title>
+      <image:title>Anwarsha N S Full Stack Developer and Software Engineer profile photo</image:title>
+      <image:caption>Anwarsha N S Software Developer profile photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha_Work.jpg</image:loc>
-      <image:title>Anwarsha N S working on software development</image:title>
+      <image:title>Anwarsha N S developing software applications at work</image:title>
+      <image:caption>Anwarsha N S Full Stack Developer working on web development projects</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20prefessional.jpg</image:loc>
-      <image:title>Anwarsha N S professional photo</image:title>
+      <image:title>Anwarsha N S professional software engineer profile photo</image:title>
+      <image:caption>Anwarsha N S Software Developer professional photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Internship.jpg</image:loc>
+      <image:title>Anwarsha N S Internship at NEST Digital</image:title>
+      <image:caption>Anwarsha N S front-end development intern at NEST Digital</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha.jpeg</image:loc>
-      <image:title>Anwarsha N S photo</image:title>
+      <image:title>Anwarsha N S portrait photo</image:title>
+      <image:caption>Anwarsha N S developer photo</image:caption>
     </image:image>
+
+    <!-- Project Screenshots -->
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20JobBridge.png</image:loc>
-      <image:title>JobBridge Project Screenshot</image:title>
+      <image:title>Anwarsha N S - JobBridge Recruitment Platform Project Screenshot 1</image:title>
+      <image:caption>JobBridge web application built with Python, Django, HTML, CSS, JavaScript by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20JobBridge%202.png</image:loc>
+      <image:title>Anwarsha N S - JobBridge Recruitment Platform Project Screenshot 2</image:title>
+      <image:caption>JobBridge recruitment platform dashboard built by Anwarsha N S</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera.png</image:loc>
-      <image:title>Skillera Project Screenshot</image:title>
+      <image:title>Anwarsha N S - Skillera E-Learning Platform Project Screenshot 1</image:title>
+      <image:caption>Skillera online learning platform built by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Skillera%202.png</image:loc>
+      <image:title>Anwarsha N S - Skillera E-Learning Platform Project Screenshot 2</image:title>
+      <image:caption>Skillera learning interface screenshot by Anwarsha N S</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive.png</image:loc>
-      <image:title>Urban Drive Project Screenshot</image:title>
+      <image:title>Anwarsha N S - Urban Drive Car Rental Project Screenshot 1</image:title>
+      <image:caption>Urban Drive car rental web application by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Urban%20Drive%202.png</image:loc>
+      <image:title>Anwarsha N S - Urban Drive Car Rental Project Screenshot 2</image:title>
+      <image:caption>Urban Drive vehicle booking system screenshot by Anwarsha N S</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing.png</image:loc>
-      <image:title>Stylora Clothing Project Screenshot</image:title>
+      <image:title>Anwarsha N S - Stylora Clothing E-Commerce Screenshot 1</image:title>
+      <image:caption>Stylora Clothing e-commerce web app built by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Stylora%20Clothing%202.png</image:loc>
+      <image:title>Anwarsha N S - Stylora Clothing E-Commerce Screenshot 2</image:title>
+      <image:caption>Stylora fashion e-commerce interface by Anwarsha N S</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store.png</image:loc>
-      <image:title>ClickMart Online Store Project Screenshot</image:title>
+      <image:title>Anwarsha N S - ClickMart Online Store Project Screenshot 1</image:title>
+      <image:caption>ClickMart online store shopping application by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Online%20Store%202.png</image:loc>
+      <image:title>Anwarsha N S - ClickMart Online Store Project Screenshot 2</image:title>
+      <image:caption>ClickMart online store product catalog by Anwarsha N S</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism.png</image:loc>
-      <image:title>Kerala Tourism Project Screenshot</image:title>
+      <image:title>Anwarsha N S - Kerala Tourism Project Screenshot 1</image:title>
+      <image:caption>Kerala Tourism showcase website designed by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20N%20S%20-%20Project%20-%20Kerala%20Tourism%202.png</image:loc>
+      <image:title>Anwarsha N S - Kerala Tourism Project Screenshot 2</image:title>
+      <image:caption>Kerala Tourism website destination page by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Game%201.png</image:loc>
+      <image:title>Anwarsha N S - Shadow Escape HTML5 Game Screenshot 1</image:title>
+      <image:caption>Shadow Escape browser platform game developed in HTML5 Canvas and JavaScript by Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Game%202.png</image:loc>
+      <image:title>Anwarsha N S - Shadow Escape HTML5 Game Screenshot 2</image:title>
+      <image:caption>Shadow Escape game play mechanics created by Anwarsha N S</image:caption>
+    </image:image>
+
+    <!-- Certificate Images -->
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Internship%20Certificate.jpeg</image:loc>
+      <image:title>Anwarsha N S - NEST Digital Front-End Development Internship Certificate</image:title>
+      <image:caption>Front-End Development Internship Certificate awarded to Anwarsha N S by NEST Digital</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Joy%20of%20Computing%20using%20python%20-%20NPTEL%20Certificate.jpeg</image:loc>
+      <image:title>Anwarsha N S - The Joy of Computing Using Python NPTEL IIT Madras Certificate</image:title>
+      <image:caption>NPTEL IIT Madras course certificate in Python awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Introduction%20to%20Git%20and%20GitHub%20course%20offered%20by%20Google.jpeg</image:loc>
+      <image:title>Anwarsha N S - Introduction to Git and GitHub Google Certificate</image:title>
+      <image:caption>Google Git and GitHub course completion certificate awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Cyber%20Security%20-%20Endpoint%20Defence.jpeg</image:loc>
+      <image:title>Anwarsha N S - Cyber Security Endpoint Defence Infosys Springboard Certificate</image:title>
+      <image:caption>Infosys Springboard Cyber Security Endpoint Defence Certificate awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Massive%20Open%20Online%20Course%20Certificate.jpeg</image:loc>
+      <image:title>Anwarsha N S - Massive Open Online Course MG University Certificate</image:title>
+      <image:caption>MG University MOOC course certificate awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Python%20Certificate.jpeg</image:loc>
+      <image:title>Anwarsha N S - Python Development Certificate Santhisoft Technologies</image:title>
+      <image:caption>Python course certificate awarded to Anwarsha N S by Santhisoft Technologies</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Photoshop%20Certificate.jpeg</image:loc>
+      <image:title>Anwarsha N S - Photoshop Graphic Design Certificate</image:title>
+      <image:caption>Photoshop training certificate awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/MyBharat_Quiz_Certificate.png</image:loc>
+      <image:title>Anwarsha N S - MyBharat Quiz Certificate</image:title>
+      <image:caption>MyBharat competition certificate awarded to Anwarsha N S</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Sports%20Club%20Secretary%20and%20Student%20council%20member.jpeg</image:loc>
+      <image:title>Anwarsha N S - Sports Club Secretary and Student Council Member Certificate</image:title>
+      <image:caption>College leadership recognition certificate awarded to Anwarsha N S</image:caption>
     </image:image>
   </url>
 </urlset>
