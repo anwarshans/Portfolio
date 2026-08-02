@@ -29,12 +29,12 @@
 <meta name="twitter:image" content="https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <!-- Favicon: fully filled high-res icons for Google Search & modern browsers -->
-<link rel="icon" href="https://anwarshans.vercel.app/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/png" sizes="48x48" href="https://anwarshans.vercel.app/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="https://anwarshans.vercel.app/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://anwarshans.vercel.app/favicon-192x192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://anwarshans.vercel.app/apple-touch-icon.png">
-<link rel="shortcut icon" href="https://anwarshans.vercel.app/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="canonical" href="https://anwarshans.vercel.app/">
 <!-- JSON-LD structured data for Google Search site name, profile & image rich results -->
 <script type="application/ld+json">
@@ -102,7 +102,7 @@
             "caption": "Anwarsha N S - Developer Portrait Photo"
           }
         ],
-        "logo": "https://anwarshans.vercel.app/logo.png",
+        "logo": "https://anwarshans.vercel.app/Uploads/Anwarsha%20Logo.png",
         "sameAs": [
           "https://github.com/anwarshans",
           "https://www.linkedin.com/in/anwarshans/"
@@ -238,7 +238,9 @@ body:hover #cursor{opacity:1}
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:68px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
 nav.scrolled{background:rgba(9,9,15,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2)}
-.nav-logo{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500;color:var(--gold);text-decoration:none;letter-spacing:.02em;position:relative}
+.nav-logo{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500;color:var(--gold);text-decoration:none;letter-spacing:.02em;position:relative}
+.nav-logo-img{height:34px;width:34px;object-fit:contain;border-radius:6px;transition:transform .3s ease;vertical-align:middle}
+.nav-logo:hover .nav-logo-img{transform:scale(1.08)}
 .nav-logo::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
 .nav-logo:hover::after{width:100%}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
@@ -738,7 +740,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo hoverable">Anwarsha<span style="color:var(--text3)">.</span>NS</a>
+  <a href="#hero" class="nav-logo hoverable"><img src="Uploads/Anwarsha%20Logo.png" alt="Anwarsha Logo" class="nav-logo-img"><span>Anwarsha<span style="color:var(--text3)">.</span>NS</span></a>
   <ul class="nav-links">
     <li><a href="#about" class="hoverable">About</a></li>
     <li><a href="#skills" class="hoverable">Skills</a></li>

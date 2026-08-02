@@ -3,10 +3,17 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://anwarshans.vercel.app/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     
+    <!-- Logo & Brand Assets -->
+    <image:image>
+      <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Logo.png</image:loc>
+      <image:title>Anwarsha N S Official Brand Logo</image:title>
+      <image:caption>Anwarsha N S Full Stack Developer Official Logo</image:caption>
+    </image:image>
+
     <!-- Profile & Personal Photos -->
     <image:image>
       <image:loc>https://anwarshans.vercel.app/Uploads/Anwarsha%20Internship%202.jpg</image:loc>
