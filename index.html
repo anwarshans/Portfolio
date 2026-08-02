@@ -1605,7 +1605,8 @@ const projects = {
     tech: ['HTML5','CSS3','JavaScript','Multiplayer','Game Logic'],
     desc: 'Imposter is an interactive multiplayer social deduction game built using HTML, CSS, and JavaScript. Designed for 3-10 players, the game challenges participants to identify the hidden imposter through discussion, deduction, and voting while the imposter blends in using clues from the round.',
     features: ['Random imposter assignment each round','One-time secret role reveal for private gameplay','Built-in random word generation library','Discussion timer with pause, resume, and skip controls','Interactive voting and elimination system','Automatic win detection for crewmates or the imposter'],
-    live: 'https://imposteronlinegame.vercel.app/'
+    live: 'https://imposteronlinegame.vercel.app/',
+    repo: 'https://github.com/anwarshans/Imposter_game'
   },
   shadowescape: {
     title: 'Shadow Escape - 2D Browser Platform Adventure',
@@ -1614,7 +1615,8 @@ const projects = {
     tech: ['HTML5','CSS3','JavaScript','Collision Detection','Responsive Design','SEO'],
     desc: 'Escape the danger. Outsmart the guards. Complete the mission. Shadow Escape is a 2D browser-based platform adventure built with HTML5, CSS3, and JavaScript where players navigate hazardous levels, avoid intelligent guards, collect energy crystals, find keys, and reach the final exit.',
     features: ['Smooth 2D platform gameplay with responsive controls','Keyboard and mobile control support','Intelligent enemy guard behavior and obstacle patterns','Collectible energy crystals with score progression','Key-based progression and mission-focused level flow','Health and scoring system with challenge balancing','Fast browser gameplay with no installation required','SEO-optimized and responsive front-end implementation'],
-    live: 'https://shadowescapegame.vercel.app/'
+    live: 'https://shadowescapegame.vercel.app/',
+    repo: 'https://github.com/anwarshans/Shadow_Escape'
   },
   jobbridge: {
     title: 'JobBridge - Inclusive Job Portal',
@@ -1622,7 +1624,8 @@ const projects = {
     org: 'Personal / Academic Project',
     tech: ['Python','Django','Bootstrap','Job Portal'],
     desc: 'JobBridge is a Python Django-based job portal developed to simplify the recruitment process for both employers and job seekers. It focuses on helping people find suitable jobs based on their education, skills, and location, with an approach that supports opportunities from 10th Fail to postgraduate level.',
-    features: ['Job discovery tailored by education and skill level','Location-based opportunity matching','Employer-friendly recruitment workflow','Responsive interface for desktop and mobile','Structured portal layout for easy navigation']
+    features: ['Job discovery tailored by education and skill level','Location-based opportunity matching','Employer-friendly recruitment workflow','Responsive interface for desktop and mobile','Structured portal layout for easy navigation'],
+    repo: 'https://github.com/anwarshans/JobBridge'
   },
   skillera: {
     title: 'Skillera - Online Skill Learning Platform',
@@ -1630,7 +1633,8 @@ const projects = {
     org: 'Santhigiri College of Computer Sciences · Academic Project',
     tech: ['Python','Django','MySQL','Bootstrap','AI Features'],
     desc: 'Skillera is a comprehensive online platform designed for teaching and learning personal skills. The platform features a robust course management system, secure user authentication, and AI-assisted learning features that enhance engagement and personalisation.',
-    features: ['Course creation and management dashboard','Secure authentication with session management','AI-assisted learning recommendations','Responsive design across all devices','Efficient database operations for fast querying','Student progress tracking']
+    features: ['Course creation and management dashboard','Secure authentication with session management','AI-assisted learning recommendations','Responsive design across all devices','Efficient database operations for fast querying','Student progress tracking'],
+    repo: 'https://github.com/anwarshans/Skillera'
   },
   urbandrive: {
     title: 'Urban Drive - Premium Car Rental Platform',
@@ -1638,7 +1642,8 @@ const projects = {
     org: 'Santhigiri College of Computer Sciences · Mini Project',
     tech: ['PHP','MySQL','JavaScript','Bootstrap'],
     desc: 'Urban Drive is a premium vehicle rental platform built with PHP and MySQL. Users can list their vehicles for rent and browse available vehicles for booking. The platform includes complete rental workflow management with optimized database performance.',
-    features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI']
+    features: ['Vehicle listing and management system','User authentication & role-based access','Booking workflow with status tracking','Admin management dashboard','Optimised database schema for performance','Responsive mobile-first UI'],
+    repo: 'https://github.com/anwarshans/Urban_Drive'
   },
   stylora: {
     title: 'Stylora Clothing - Luxury Fashion Store',
@@ -1646,7 +1651,8 @@ const projects = {
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','REST API'],
     desc: 'Stylora Clothing is a polished front-end built with Angular focusing on product presentation, clean UI, and responsive layouts for a premium shopping experience.',
-    features: ['Responsive product gallery','Product detail & rating UI','Reusable Angular components','API-driven catalog and search','Mobile-first responsive design']
+    features: ['Responsive product gallery','Product detail & rating UI','Reusable Angular components','API-driven catalog and search','Mobile-first responsive design'],
+    repo: 'https://github.com/anwarshans/Stylora_Clothing'
   },
   clickmart: {
     title: 'ClickMart - Online Store',
@@ -1654,7 +1660,8 @@ const projects = {
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','REST API'],
     desc: 'ClickMart is an Angular single-page application implementing a product catalog, search/filter functionality, and a checkout flow integrated with backend APIs.',
-    features: ['Search and filter UI','Shopping cart & checkout flow','Product carousel and hero banners','State management with services','Responsive and accessible UI']
+    features: ['Search and filter UI','Shopping cart & checkout flow','Product carousel and hero banners','State management with services','Responsive and accessible UI'],
+    repo: 'https://github.com/anwarshans/ClickMart'
   }
   ,kerala: {
     title: 'Kerala Tourism - Travel Showcase',
@@ -1662,7 +1669,8 @@ const projects = {
     org: 'Personal / Academic Project',
     tech: ['Angular','TypeScript','Bootstrap','Responsive Design'],
     desc: 'Kerala Tourism is a visually-rich Angular site highlighting districts, immersive hero images, and responsive cards to showcase travel destinations and experiences.',
-    features: ['Full-width hero with carousel','District cards with descriptions','Responsive grid layout','Image-focused design','Accessible and SEO-friendly markup']
+    features: ['Full-width hero with carousel','District cards with descriptions','Responsive grid layout','Image-focused design','Accessible and SEO-friendly markup'],
+    repo: 'https://github.com/anwarshans/Kerala_Tourism'
   }
 };
 function updateProjectCarousel() {
@@ -1727,7 +1735,7 @@ function openProject(id) {
       </div>
       <div style="display:flex;gap:.75rem;flex-wrap:wrap">
         ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener" class="btn btn-gold" style="text-decoration:none;display:inline-flex;font-size:.8rem">Play Now →</a>` : ''}
-        <a href="https://github.com/anwarshans" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;font-size:.8rem">View on GitHub →</a>
+        <a href="${p.repo || 'https://github.com/anwarshans'}" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;font-size:.8rem">View on GitHub →</a>
       </div>
     </div>`;
   document.getElementById('modalOverlay').classList.add('open');
