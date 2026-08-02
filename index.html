@@ -500,7 +500,7 @@ h2.section-title,
 .proj-body{padding:1.75rem}
 .proj-banner-name{position:relative;display:block;font-size:clamp(1.7rem,2.2vw,1.6rem);font-weight:700;font-family:'Inter',sans-serif;color:var(--gold);background:none;-webkit-background-clip:unset;-webkit-text-fill-color:unset;background-clip:unset;letter-spacing:0.01em;line-height:1.05;margin-bottom:.35rem}
 .proj-title{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;letter-spacing:0;color:var(--text)}
-.proj-desc{color:var(--text2);font-size:.96rem;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4.8em}
+.proj-desc{color:var(--text2);font-size:.96rem;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4.8em}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.25rem}
 .proj-links{display:flex;gap:1.25rem}
 .proj-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--text3);font-size:.78rem;text-decoration:none;transition:color .2s;letter-spacing:.03em}
@@ -946,75 +946,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     <h2 class="section-title reveal delay-1">What I've Built</h2>
     <p class="section-desc reveal delay-2">A selection of my best work — from concept to deployment.</p>
     <div class="projects-grid">
-
-      <div class="proj-card featured tilt reveal" onclick="openProject('imposter')" data-carousel="imposter">
-        <div class="proj-banner">
-          <div class="proj-banner-bg"></div>
-          <div class="proj-carousel">
-            <div class="proj-slide active">
-              <img src="Uploads/Anwarsha%20N%20S%20Game%201.png" alt="Imposter social deduction game screenshot 1">
-            </div>
-            <div class="proj-slide">
-              <img src="Uploads/Anwarsha%20N%20S%20Game%202.png" alt="Imposter social deduction game screenshot 2">
-            </div>
-          </div>
-          <div class="proj-banner-grid"></div>
-        </div>
-        <div class="proj-banner-caption">
-          <div class="proj-banner-name">Imposter</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">Imposter - Multiplayer Social Deduction Web Game</div>
-          <div class="proj-desc">Imposter is a multiplayer social deduction game built with HTML, CSS, and JavaScript for 3-10 players. One secret imposter blends in while crewmates discuss clues and vote to identify the hidden role.</div>
-          <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Multiplayer</span><span class="badge">Game Logic</span></div>
-          <div class="proj-links">
-            <a href="https://imposteronlinegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
-            </a>
-            <a href="https://github.com/anwarshans/Imposter_game" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
-            </a>
-            <a href="#" class="proj-link hoverable case-study-link" data-project="imposter" style="color:var(--gold);cursor:pointer">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="proj-card featured tilt reveal" onclick="openProject('shadowescape')" data-carousel="shadowescape">
-        <div class="proj-banner">
-          <div class="proj-banner-bg"></div>
-          <div class="proj-carousel">
-            <div class="proj-slide active">
-              <img src="Uploads/Anwarsha%20Game%201.png" alt="Shadow Escape HTML5 browser game screenshot 1">
-            </div>
-            <div class="proj-slide">
-              <img src="Uploads/Anwarsha%20Game%202.png" alt="Shadow Escape platform adventure game screenshot 2">
-            </div>
-          </div>
-          <div class="proj-banner-grid"></div>
-        </div>
-        <div class="proj-banner-caption">
-          <div class="proj-banner-name">Shadow Escape</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">Shadow Escape - 2D Browser Platform Adventure</div>
-          <div class="proj-desc">Shadow Escape is a 2D HTML5 platform adventure with enemy AI, collectible crystals, key-based progression, and responsive controls for desktop and mobile play.</div>
-          <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Game Logic</span><span class="badge">Responsive</span></div>
-          <div class="proj-links">
-            <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
-            </a>
-            <a href="https://github.com/anwarshans/Shadow_Escape" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
-            </a>
-            <a href="#" class="proj-link hoverable case-study-link" data-project="shadowescape" style="color:var(--gold);cursor:pointer">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div class="proj-card featured tilt reveal" onclick="openProject('skillera')" data-carousel="skillera">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1077,6 +1008,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
+
       <div class="proj-card featured tilt reveal" onclick="openProject('jobbridge')" data-carousel="jobbridge">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1107,6 +1039,75 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
+
+      <div class="proj-card featured tilt reveal" onclick="openProject('shadowescape')" data-carousel="shadowescape">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20Game%201.png" alt="Shadow Escape HTML5 browser game screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20Game%202.png" alt="Shadow Escape platform adventure game screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Shadow Escape</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Shadow Escape - 2D Browser Platform Adventure</div>
+          <div class="proj-desc">Shadow Escape is a 2D HTML5 platform adventure with enemy AI, collectible crystals, key-based progression, and responsive controls for desktop and mobile play.</div>
+          <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Game Logic</span><span class="badge">Responsive</span></div>
+          <div class="proj-links">
+            <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
+            </a>
+            <a href="https://github.com/anwarshans/Shadow_Escape" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="shadowescape" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card featured tilt reveal" onclick="openProject('imposter')" data-carousel="imposter">
+        <div class="proj-banner">
+          <div class="proj-banner-bg"></div>
+          <div class="proj-carousel">
+            <div class="proj-slide active">
+              <img src="Uploads/Anwarsha%20N%20S%20Game%201.png" alt="Imposter social deduction game screenshot 1">
+            </div>
+            <div class="proj-slide">
+              <img src="Uploads/Anwarsha%20N%20S%20Game%202.png" alt="Imposter social deduction game screenshot 2">
+            </div>
+          </div>
+          <div class="proj-banner-grid"></div>
+        </div>
+        <div class="proj-banner-caption">
+          <div class="proj-banner-name">Imposter</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Imposter - Multiplayer Social Deduction Web Game</div>
+          <div class="proj-desc">Imposter is a multiplayer social deduction game built with HTML, CSS, and JavaScript for 3-10 players. One secret imposter blends in while crewmates discuss clues and vote to identify the hidden role.</div>
+          <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Multiplayer</span><span class="badge">Game Logic</span></div>
+          <div class="proj-links">
+            <a href="https://imposteronlinegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
+            </a>
+            <a href="https://github.com/anwarshans/Imposter_game" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
+            </a>
+            <a href="#" class="proj-link hoverable case-study-link" data-project="imposter" style="color:var(--gold);cursor:pointer">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="proj-card tilt reveal delay-2" onclick="openProject('stylora')" data-carousel="stylora">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1137,6 +1138,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
+
       <div class="proj-card tilt reveal delay-2" onclick="openProject('clickmart')" data-carousel="clickmart">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1167,6 +1169,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
           </div>
         </div>
       </div>
+
       <div class="proj-card tilt reveal delay-2" onclick="openProject('kerala')" data-carousel="kerala">
         <div class="proj-banner">
           <div class="proj-banner-bg"></div>
@@ -1748,11 +1751,6 @@ function closeModal(e) {
     document.body.style.overflow = '';
   }
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-/* ═══════════════════════════════════════════
-   CONTACT FORM
-═══════════════════════════════════════════ */
 function handleSubmit(event) {
   event.preventDefault();
   const n = document.getElementById('fn').value.trim();
@@ -1777,7 +1775,6 @@ function handleSubmit(event) {
   formData.set('email', em);
   formData.set('message', m);
   fetch('https://formsubmit.co/ajax/anwarshans.dev@gmail.com', {
-    method: 'POST',
     headers: { 'Accept': 'application/json' },
     body: formData
   })
