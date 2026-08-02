@@ -500,7 +500,7 @@ h2.section-title,
 .proj-body{padding:1.75rem}
 .proj-banner-name{position:relative;display:block;font-size:clamp(1.7rem,2.2vw,1.6rem);font-weight:700;font-family:'Inter',sans-serif;color:var(--gold);background:none;-webkit-background-clip:unset;-webkit-text-fill-color:unset;background-clip:unset;letter-spacing:0.01em;line-height:1.05;margin-bottom:.35rem}
 .proj-title{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;letter-spacing:0;color:var(--text)}
-.proj-desc{color:var(--text2);font-size:.96rem;line-height:1.6;margin-bottom:1rem}
+.proj-desc{color:var(--text2);font-size:.96rem;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:4.8em}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.25rem}
 .proj-links{display:flex;gap:1.25rem}
 .proj-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--text3);font-size:.78rem;text-decoration:none;transition:color .2s;letter-spacing:.03em}
@@ -670,7 +670,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .proj-banner-caption{padding:1rem 1.25rem 0}
   .proj-body{padding:1.25rem}
   .proj-title{font-size:1rem}
-  .proj-desc{font-size:.92rem}
+  .proj-desc{font-size:.92rem;min-height:4.6em}
   .proj-links{flex-direction:column;gap:.75rem}
   .proj-links .proj-link{width:100%;justify-content:center;padding:.85rem 1rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);}
   .proj-links .proj-link:hover{color:var(--gold);background:rgba(201,168,76,.07)}
@@ -965,9 +965,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Imposter - Multiplayer Social Deduction Web Game</div>
-          <div class="proj-desc">Imposter is an interactive multiplayer social deduction game built with HTML, CSS, and JavaScript for 3-10 players. One player is secretly assigned as the imposter each round while crewmates discuss clues, vote strategically, and try to identify the hidden role before the imposter outlasts the group.</div>
+          <div class="proj-desc">Imposter is a multiplayer social deduction game built with HTML, CSS, and JavaScript for 3-10 players. One secret imposter blends in while crewmates discuss clues and vote to identify the hidden role.</div>
           <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Multiplayer</span><span class="badge">Game Logic</span></div>
           <div class="proj-links">
+            <a href="https://imposteronlinegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
+            </a>
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
             </a>
@@ -996,11 +999,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Shadow Escape - 2D Browser Platform Adventure</div>
-          <div class="proj-desc">Escape the danger. Outsmart the guards. Complete the mission. Shadow Escape is a 2D HTML5 platform adventure with enemy AI, collectible crystals, key-based progression, and responsive controls across desktop and mobile.</div>
+          <div class="proj-desc">Shadow Escape is a 2D HTML5 platform adventure with enemy AI, collectible crystals, key-based progression, and responsive controls for desktop and mobile play.</div>
           <div class="proj-tags"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript</span><span class="badge">Game Logic</span><span class="badge">Responsive</span></div>
           <div class="proj-links">
             <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="proj-link hoverable" style="color:var(--gold);font-weight:600" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19 8,5"/></svg> Play Now
+            </a>
+            <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub
             </a>
             <a href="#" class="proj-link hoverable case-study-link" data-project="shadowescape" style="color:var(--gold);cursor:pointer">
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Case Study
@@ -1028,7 +1034,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Skillera - Online Skill Learning Platform</div>
-          <div class="proj-desc">A full-featured e-learning platform for teaching and learning personal skills, powered by Python Django with AI-assisted learning features, secure course management, and responsive design.</div>
+          <div class="proj-desc">Skillera is an e-learning platform for teaching and learning personal skills, built with Python Django, secure course management, AI-assisted learning, and responsive design.</div>
           <div class="proj-tags"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">MySQL</span><span class="badge">AI</span><span class="badge">Bootstrap</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1059,7 +1065,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Urban Drive - Premium Car Rental Platform</div>
-          <div class="proj-desc">A full-stack vehicle rental platform enabling users to list, browse, and rent vehicles with complete booking workflows, authentication, and optimized database performance.</div>
+          <div class="proj-desc">Urban Drive is a full-stack vehicle rental platform for listing, browsing, and renting vehicles with booking workflows, authentication, and optimized database performance.</div>
           <div class="proj-tags"><span class="badge">PHP</span><span class="badge">MySQL</span><span class="badge">JavaScript</span><span class="badge">Bootstrap</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1089,7 +1095,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">JobBridge - Inclusive Job Portal</div>
-          <div class="proj-desc">A Python Django-based job portal designed to simplify recruitment for employers and job seekers, helping users discover suitable opportunities based on education, skills, and location.</div>
+          <div class="proj-desc">JobBridge is a Python Django job portal that simplifies recruitment by helping employers and job seekers find suitable opportunities based on education, skills, and location.</div>
           <div class="proj-tags"><span class="badge">Python</span><span class="badge">Django</span><span class="badge">Bootstrap</span><span class="badge">Job Portal</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1119,7 +1125,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Stylora Clothing - Luxury Fashion Store (Angular)</div>
-          <div class="proj-desc">An elegant e-commerce front-end built with Angular showcasing responsive product galleries, rating UI, and product detail workflows integrated with a backend API.</div>
+          <div class="proj-desc">Stylora Clothing is an Angular e-commerce front end with responsive product galleries, rating UI, and product detail workflows connected to a backend API.</div>
           <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1149,7 +1155,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">ClickMart - Online Store (Angular)</div>
-          <div class="proj-desc">A modern e-commerce SPA built with Angular featuring a product carousel, search and filter, and a checkout flow connected to backend APIs.</div>
+          <div class="proj-desc">ClickMart is an Angular e-commerce SPA with a product carousel, search and filter tools, and a checkout flow connected to backend APIs.</div>
           <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1179,7 +1185,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
         </div>
         <div class="proj-body">
           <div class="proj-title">Kerala Tourism - Travel Showcase (Angular)</div>
-          <div class="proj-desc">A visually-rich tourism site built with Angular highlighting destinations, district cards, and immersive hero images for an engaging travel browsing experience.</div>
+          <div class="proj-desc">Kerala Tourism is a visually rich Angular site with district highlights, immersive hero images, and responsive cards for travel destinations and experiences.</div>
           <div class="proj-tags"><span class="badge">Angular</span><span class="badge">TypeScript</span><span class="badge">Bootstrap</span><span class="badge">REST API</span></div>
           <div class="proj-links">
             <a href="https://github.com/anwarshans" target="_blank" class="proj-link hoverable" onclick="event.stopPropagation()">
@@ -1598,7 +1604,8 @@ const projects = {
     org: 'Personal Project',
     tech: ['HTML5','CSS3','JavaScript','Multiplayer','Game Logic'],
     desc: 'Imposter is an interactive multiplayer social deduction game built using HTML, CSS, and JavaScript. Designed for 3-10 players, the game challenges participants to identify the hidden imposter through discussion, deduction, and voting while the imposter blends in using clues from the round.',
-    features: ['Random imposter assignment each round','One-time secret role reveal for private gameplay','Built-in random word generation library','Discussion timer with pause, resume, and skip controls','Interactive voting and elimination system','Automatic win detection for crewmates or the imposter']
+    features: ['Random imposter assignment each round','One-time secret role reveal for private gameplay','Built-in random word generation library','Discussion timer with pause, resume, and skip controls','Interactive voting and elimination system','Automatic win detection for crewmates or the imposter'],
+    live: 'https://imposteronlinegame.vercel.app/'
   },
   shadowescape: {
     title: 'Shadow Escape - 2D Browser Platform Adventure',
