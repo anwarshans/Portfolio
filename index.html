@@ -11,7 +11,7 @@
 <meta name="designer" content="Anwarsha N S">
 <meta name="publisher" content="Anwarsha N S">
 <meta name="theme-color" content="#09090F">
-<meta name="keywords" content="Anwarsha, Anwarsha N S, Full Stack Developer, Software Engineer, Web Developer, Python, Django, Java, PHP, Angular, JavaScript, MySQL, Imposter, JobBridge, Shadow Escape, HTML5 game, browser platform game, Portfolio, Kerala">
+<meta name="keywords" content="Anwarsha, Anwarsha N S, anwarshans.me, anwarshans.vercel.app, Full Stack Developer, Software Engineer, Web Developer, Python, Django, Java, PHP, Angular, JavaScript, MySQL, Imposter, JobBridge, Shadow Escape, HTML5 game, browser platform game, Portfolio, Kerala">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anwarsha N S">
 <meta property="og:description" content="Portfolio of Anwarsha N S — Full Stack Developer and Software Engineer. Explore projects built with Python, Django, Java, PHP, Angular, JavaScript, Imposter, and JobBridge.">
@@ -47,7 +47,7 @@
       "@id": "https://anwarshans.me/#website",
       "url": "https://anwarshans.me/",
       "name": "Anwarsha N S",
-      "alternateName": ["Anwarsha", "Anwarsha N S Portfolio", "anwarshans.me"],
+      "alternateName": ["Anwarsha", "Anwarsha N S Portfolio", "anwarshans.me", "anwarshans.vercel.app"],
       "publisher": {
         "@type": "Person",
         "name": "Anwarsha N S"
@@ -105,6 +105,7 @@
         ],
         "logo": "https://anwarshans.me/Uploads/Anwarsha%20Logo.webp",
         "sameAs": [
+          "https://anwarshans.vercel.app/",
           "https://github.com/anwarshans",
           "https://www.linkedin.com/in/anwarshans/"
         ],
@@ -737,9 +738,372 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hero-location{position:absolute;left:50%;bottom:18%;transform:translateX(-50%);width:max-content;margin:0;z-index:5;font-size:.75rem;padding:.45rem .7rem}
   .hero-location .pin{width:8px;height:8px}
 }
-@media(prefers-reduced-motion:reduce){
-  .reveal,.reveal-left,.reveal-right{transition:none;opacity:1;transform:none}
-  .tilt{transform:none!important}
+
+/* ============================================================
+   AI CHATBOT WIDGET STYLES
+   ============================================================ */
+.ai-widget-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #181926 0%, #0c0d14 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+}
+.ai-widget-launcher:hover {
+  transform: scale(1.08) translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 28px rgba(212, 175, 55, 0.4);
+}
+.ai-widget-launcher .pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  animation: botPulse 2.5s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes botPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+.ai-launcher-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #D4AF37;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+.ai-widget-launcher.active .ai-launcher-icon {
+  transform: rotate(90deg);
+}
+
+.ai-tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(18, 19, 30, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #F3F4F6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform-origin: right center;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-widget-launcher:hover .ai-tooltip,
+.ai-tooltip.show {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.ai-chat-window {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  z-index: 9999;
+  width: min(390px, calc(100vw - 32px));
+  height: min(540px, calc(100vh - 120px));
+  background: rgba(11, 12, 19, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ai-chat-window.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+
+.ai-chat-header {
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(24, 26, 40, 0.9) 0%, rgba(14, 15, 24, 0.8) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ai-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ai-avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 240, 255, 0.15));
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.ai-status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 9px;
+  height: 9px;
+  background: #10B981;
+  border: 2px solid #0B0C13;
+  border-radius: 50%;
+}
+.ai-header-text .ai-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-header-text .ai-subtitle {
+  font-size: 0.7rem;
+  color: var(--text3, #9CA3AF);
+}
+.ai-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text3, #9CA3AF);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.ai-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFF;
+}
+
+.ai-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+.ai-chat-body::-webkit-scrollbar {
+  width: 4px;
+}
+.ai-chat-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.ai-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 86%;
+  animation: aiMsgIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes aiMsgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ai-message.bot {
+  align-self: flex-start;
+}
+.ai-message.user {
+  align-self: flex-end;
+}
+.ai-msg-bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+.ai-message.bot .ai-msg-bubble {
+  background: rgba(26, 28, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E5E7EB;
+  border-top-left-radius: 4px;
+}
+.ai-message.user .ai-msg-bubble {
+  background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+  color: #0A0B10;
+  font-weight: 500;
+  border-top-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+.ai-msg-time {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+  padding: 0 4px;
+}
+.ai-message.user .ai-msg-time {
+  align-self: flex-end;
+}
+
+.ai-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.ai-chip {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: var(--gold, #D4AF37);
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ai-chip:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-1px);
+}
+
+.ai-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  background: rgba(26, 28, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  border-top-left-radius: 4px;
+  width: fit-content;
+}
+.ai-typing span {
+  width: 6px;
+  height: 6px;
+  background: #D4AF37;
+  border-radius: 50%;
+  animation: aiTypingDot 1.4s infinite ease-in-out both;
+}
+.ai-typing span:nth-child(1) { animation-delay: -0.32s; }
+.ai-typing span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes aiTypingDot {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.ai-chat-footer {
+  padding: 12px 14px;
+  background: rgba(14, 15, 24, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ai-input-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 4px 6px 4px 14px;
+  transition: border-color 0.2s ease;
+}
+.ai-input-form:focus-within {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+}
+.ai-input-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFF;
+  font-size: 0.82rem;
+  font-family: inherit;
+}
+.ai-input-form input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.ai-send-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+  border: none;
+  color: #0A0B10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.ai-send-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.ai-chat-link {
+  color: #D4AF37;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.ai-chat-link:hover {
+  color: #FFF;
+}
+
+@media (max-width: 480px) {
+  .ai-widget-launcher {
+    bottom: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+  }
+  .ai-chat-window {
+    bottom: 78px;
+    right: 12px;
+    width: calc(100vw - 24px);
+    height: min(480px, calc(100vh - 100px));
+  }
 }
 </style>
 </head>
@@ -1812,6 +2176,275 @@ function handleSubmit(event) {
       button.disabled = false;
       button.textContent = 'Send Message →';
     });
+}
+</script>
+
+<!-- ============================================================
+     AI CHATBOT WIDGET MARKUP
+     ============================================================ -->
+<div id="aiChatLauncher" class="ai-widget-launcher" aria-label="Open AI Assistant" role="button" tabindex="0">
+  <div class="pulse-ring"></div>
+  <svg class="ai-launcher-icon" viewBox="0 0 24 24">
+    <path class="icon-bot" d="M12 2a2 2 0 0 1 2 2v2a8 8 0 0 1 8 8v5a3 3 0 0 1-3 3h-1a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a3 3 0 0 1-3-3v-5a8 8 0 0 1 8-8V4a2 2 0 0 1 2-2z"/>
+    <circle cx="9" cy="13" r="1.2" fill="#D4AF37"/>
+    <circle cx="15" cy="13" r="1.2" fill="#D4AF37"/>
+    <path class="icon-close" d="M18 6L6 18M6 6l12 12" style="display:none;stroke-width:2.5;stroke:#D4AF37"/>
+  </svg>
+  <div class="ai-tooltip" id="aiTooltip">
+    <span>✨ Chat with AI</span>
+  </div>
+</div>
+
+<div id="aiChatWindow" class="ai-chat-window" aria-hidden="true">
+  <!-- Header -->
+  <div class="ai-chat-header">
+    <div class="ai-header-info">
+      <div class="ai-avatar-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a2 2 0 0 1 2 2v2a8 8 0 0 1 8 8v5a3 3 0 0 1-3 3h-1a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a3 3 0 0 1-3-3v-5a8 8 0 0 1 8-8V4a2 2 0 0 1 2-2z"/>
+        </svg>
+        <span class="ai-status-dot"></span>
+      </div>
+      <div class="ai-header-text">
+        <div class="ai-title">Anwarsha AI ✨</div>
+        <div class="ai-subtitle">Ask me anything about Anwarsha</div>
+      </div>
+    </div>
+    <div class="ai-header-actions">
+      <button id="aiResetBtn" class="ai-icon-btn" title="Reset Chat" aria-label="Reset Chat">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+      <button id="aiCloseBtn" class="ai-icon-btn" title="Close Chat" aria-label="Close Chat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages Body -->
+  <div class="ai-chat-body" id="aiChatBody">
+    <div class="ai-message bot">
+      <div class="ai-msg-bubble">
+        👋 Hi! I'm <strong>Anwarsha's AI Assistant</strong>. Ask me anything about Anwarsha's full-stack engineering skills, featured projects, experience, or how to get in touch!
+      </div>
+      <div class="ai-msg-time">Just now</div>
+    </div>
+
+    <div class="ai-suggestions" id="aiSuggestions">
+      <button class="ai-chip" onclick="handleAiChipClick('What are Anwarsha\'s top skills?')">⚡ Skills & Tech Stack</button>
+      <button class="ai-chip" onclick="handleAiChipClick('Tell me about your projects')">💻 Projects</button>
+      <button class="ai-chip" onclick="handleAiChipClick('What is your experience and internship?')">🎓 Experience</button>
+      <button class="ai-chip" onclick="handleAiChipClick('How can I contact Anwarsha?')">📬 Contact Info</button>
+      <button class="ai-chip" onclick="handleAiChipClick('Where can I download the resume?')">📄 Resume</button>
+    </div>
+  </div>
+
+  <!-- Input Footer -->
+  <div class="ai-chat-footer">
+    <form id="aiChatForm" class="ai-input-form" onsubmit="handleAiFormSubmit(event)">
+      <input type="text" id="aiChatInput" placeholder="Ask about Anwarsha..." autocomplete="off" />
+      <button type="submit" class="ai-send-btn" aria-label="Send message">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// ANWARSHA AI CHATBOT ENGINE
+// ============================================================
+function getAiResponse(userQuery) {
+  const query = userQuery.toLowerCase().trim();
+
+  // 1. Greetings
+  if (/^(hi|hello|hey|greetings|hola|namaste|sup|good\s(morning|afternoon|evening))/i.test(query)) {
+    return `Hello! 👋 How can I help you learn more about Anwarsha today? You can ask about his <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">skills</a>, <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">projects</a>, or <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">contact details</a>!`;
+  }
+
+  // 2. Skills / Tech Stack
+  if (/skill|tech|stack|language|framework|python|django|java|php|angular|javascript|mysql|code|coding|develop/i.test(query)) {
+    return `⚡ <strong>Anwarsha's Core Technical Skills:</strong><br/>
+    • <strong>Languages:</strong> Python, Java, PHP, JavaScript (ES6+)<br/>
+    • <strong>Frameworks:</strong> Django, Angular<br/>
+    • <strong>Database & Web:</strong> MySQL, HTML5, CSS3, REST APIs, Git<br/><br/>
+    Check out his full tech stack under the <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Skills section</a>!`;
+  }
+
+  // 3. Projects (Imposter, JobBridge, Shadow Escape)
+  if (/project|imposter|jobbridge|shadow\s*escape|portfolio|built|game|app|work/i.test(query)) {
+    if (/imposter/i.test(query)) {
+      return `🎮 <strong>Imposter Project:</strong><br/>An interactive application showcasing creative problem-solving and clean code architecture.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">View in Projects section →</a>`;
+    }
+    if (/jobbridge/i.test(query)) {
+      return `💼 <strong>JobBridge Project:</strong><br/>A full-stack job portal web application connecting job seekers and employers with job matching and tracking.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">View in Projects section →</a>`;
+    }
+    if (/shadow/i.test(query)) {
+      return `🕹️ <strong>Shadow Escape Game:</strong><br/>An atmospheric HTML5 browser platformer game built with custom physics and smooth controls.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Play & View in Projects →</a>`;
+    }
+    return `🚀 <strong>Anwarsha's Featured Projects:</strong><br/>
+    1. <strong>Imposter</strong> — Interactive application<br/>
+    2. <strong>JobBridge</strong> — Full-stack Job Portal platform<br/>
+    3. <strong>Shadow Escape</strong> — HTML5 browser platformer game<br/><br/>
+    Explore all live demos and code in the <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Projects section</a>!`;
+  }
+
+  // 4. Experience & Internship
+  if (/experience|intern|nest|digital|company|job|work\s*history|background/i.test(query)) {
+    return `🎓 <strong>Experience & Background:</strong><br/>
+    Anwarsha completed a Full Stack Developer internship at <strong>NEST Digital</strong>, gaining real-world experience developing enterprise web solutions.<br/><br/>
+    Visit the <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">Experience section</a> to see more!`;
+  }
+
+  // 5. Contact / Hire / Email
+  if (/contact|email|reach|hire|message|phone|connect|linkedin|github|gmail/i.test(query)) {
+    return `📬 <strong>Get in Touch with Anwarsha:</strong><br/>
+    • <strong>Email:</strong> <a href="mailto:anwarshans.dev@gmail.com" class="ai-chat-link">anwarshans.dev@gmail.com</a><br/>
+    • <strong>Location:</strong> Kerala, India<br/>
+    • <strong>GitHub:</strong> <a href="https://github.com/anwarshans" target="_blank" rel="noopener" class="ai-chat-link">github.com/anwarshans</a><br/><br/>
+    You can also send a message directly using the <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">Contact Form</a>!`;
+  }
+
+  // 6. Resume / CV
+  if (/resume|cv|download|document|pdf/i.test(query)) {
+    return `📄 You can view and download Anwarsha's full resume using the Resume button on the site or ask me any question about his background!`;
+  }
+
+  // 7. Who is Anwarsha / About
+  if (/who|about|anwar|anwarsha|bio|tell\s*me\s*about/i.test(query)) {
+    return `👨‍💻 <strong>About Anwarsha N S:</strong><br/>
+    Anwarsha is a passionate <strong>Full Stack Developer & Software Engineer</strong> from Kerala, India. He builds web applications, interactive games, and scalable backend systems using Python, Django, Java, Angular, and PHP.`;
+  }
+
+  // Fallback
+  return `I'm not sure about that specific query, but I can tell you all about Anwarsha's ⚡ <strong>Skills</strong>, 💻 <strong>Projects</strong> (Imposter, JobBridge, Shadow Escape), 🎓 <strong>Experience</strong>, or 📬 <strong>Contact info</strong>! What would you like to explore?`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const launcher = document.getElementById('aiChatLauncher');
+  const chatWindow = document.getElementById('aiChatWindow');
+  const closeBtn = document.getElementById('aiCloseBtn');
+  const resetBtn = document.getElementById('aiResetBtn');
+  const tooltip = document.getElementById('aiTooltip');
+  const chatInput = document.getElementById('aiChatInput');
+  const iconBot = launcher.querySelector('.icon-bot');
+  const iconClose = launcher.querySelector('.icon-close');
+
+  function toggleChat() {
+    const isOpen = chatWindow.classList.contains('open');
+    if (isOpen) {
+      closeAiChatWindow();
+    } else {
+      chatWindow.classList.add('open');
+      launcher.classList.add('active');
+      chatWindow.setAttribute('aria-hidden', 'false');
+      if (tooltip) tooltip.classList.remove('show');
+      if (iconBot && iconClose) {
+        iconBot.style.display = 'none';
+        iconClose.style.display = 'block';
+      }
+      setTimeout(() => chatInput && chatInput.focus(), 300);
+    }
+  }
+
+  launcher.addEventListener('click', toggleChat);
+  closeBtn.addEventListener('click', closeAiChatWindow);
+
+  resetBtn.addEventListener('click', () => {
+    const chatBody = document.getElementById('aiChatBody');
+    chatBody.innerHTML = `
+      <div class="ai-message bot">
+        <div class="ai-msg-bubble">
+          👋 Hi! I'm <strong>Anwarsha's AI Assistant</strong>. Ask me anything about Anwarsha's skills, projects, experience, or how to get in touch!
+        </div>
+        <div class="ai-msg-time">Just now</div>
+      </div>
+      <div class="ai-suggestions" id="aiSuggestions">
+        <button class="ai-chip" onclick="handleAiChipClick('What are Anwarsha\\\'s top skills?')">⚡ Skills & Tech Stack</button>
+        <button class="ai-chip" onclick="handleAiChipClick('Tell me about your projects')">💻 Projects</button>
+        <button class="ai-chip" onclick="handleAiChipClick('What is your experience and internship?')">🎓 Experience</button>
+        <button class="ai-chip" onclick="handleAiChipClick('How can I contact Anwarsha?')">📬 Contact Info</button>
+        <button class="ai-chip" onclick="handleAiChipClick('Where can I download the resume?')">📄 Resume</button>
+      </div>
+    `;
+  });
+
+  setTimeout(() => {
+    if (tooltip && !chatWindow.classList.contains('open')) {
+      tooltip.classList.add('show');
+      setTimeout(() => tooltip.classList.remove('show'), 6000);
+    }
+  }, 3000);
+});
+
+function closeAiChatWindow() {
+  const launcher = document.getElementById('aiChatLauncher');
+  const chatWindow = document.getElementById('aiChatWindow');
+  const iconBot = launcher.querySelector('.icon-bot');
+  const iconClose = launcher.querySelector('.icon-close');
+
+  chatWindow.classList.remove('open');
+  launcher.classList.remove('active');
+  chatWindow.setAttribute('aria-hidden', 'true');
+  if (iconBot && iconClose) {
+    iconBot.style.display = 'block';
+    iconClose.style.display = 'none';
+  }
+}
+
+function handleAiFormSubmit(event) {
+  event.preventDefault();
+  const input = document.getElementById('aiChatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  
+  sendAiUserMessage(text);
+  input.value = '';
+}
+
+function handleAiChipClick(queryText) {
+  sendAiUserMessage(queryText);
+}
+
+function sendAiUserMessage(text) {
+  const chatBody = document.getElementById('aiChatBody');
+  const suggestions = document.getElementById('aiSuggestions');
+  if (suggestions) suggestions.remove();
+
+  const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const userMsgEl = document.createElement('div');
+  userMsgEl.className = 'ai-message user';
+  userMsgEl.innerHTML = `
+    <div class="ai-msg-bubble">${escapeHtml(text)}</div>
+    <div class="ai-msg-time">${now}</div>
+  `;
+  chatBody.appendChild(userMsgEl);
+
+  const typingEl = document.createElement('div');
+  typingEl.className = 'ai-message bot';
+  typingEl.id = 'aiTypingIndicator';
+  typingEl.innerHTML = `<div class="ai-typing"><span></span><span></span><span></span></div>`;
+  chatBody.appendChild(typingEl);
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+  setTimeout(() => {
+    const indicator = document.getElementById('aiTypingIndicator');
+    if (indicator) indicator.remove();
+
+    const botResponseHtml = getAiResponse(text);
+    const botMsgEl = document.createElement('div');
+    botMsgEl.className = 'ai-message bot';
+    botMsgEl.innerHTML = `
+      <div class="ai-msg-bubble">${botResponseHtml}</div>
+      <div class="ai-msg-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+    `;
+    chatBody.appendChild(botMsgEl);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 600);
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 </script>
 </body>
