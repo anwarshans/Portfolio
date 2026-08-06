@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://anwarshans.vercel.app/sitemap.xml
+Sitemap: https://anwarshans.me/sitemap.xml
