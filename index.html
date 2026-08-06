@@ -236,8 +236,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ── CUSTOM CURSOR ── */
-#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen}
-#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s ease-out,width .2s,height .2s,border-color .2s}
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:100001;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen}
+#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,76,.4);pointer-events:none;z-index:100000;transform:translate(-50%,-50%);transition:transform .12s ease-out,width .2s,height .2s,border-color .2s}
 body:hover #cursor{opacity:1}
 .hoverable{cursor:none}
 
@@ -1007,6 +1007,234 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   transform: translateY(-1px);
 }
 
+.ai-message.bot {
+  max-width: 90%;
+}
+
+.ai-photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0 6px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ai-photo-card {
+  position: relative;
+  width: 100%;
+  height: 95px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: #090A10;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ai-photo-card:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: rgba(212, 175, 55, 0.9);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+
+.ai-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ai-photo-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(12, 13, 20, 0.85);
+  backdrop-filter: blur(4px);
+  color: #F3F4F6;
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 4px 6px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* AI Game Cards inside Chatbot */
+.ai-game-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 6px 0;
+  width: 100%;
+}
+
+.ai-game-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(18, 20, 32, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.ai-game-card:hover {
+  border-color: rgba(212, 175, 55, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.ai-game-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 95px;
+  overflow: hidden;
+}
+
+.ai-game-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ai-game-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(10, 11, 16, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #D4AF37);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.ai-game-info {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ai-game-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.ai-game-desc {
+  font-size: 0.73rem;
+  color: #9CA3AF;
+  line-height: 1.4;
+}
+
+.ai-game-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ai-btn-play {
+  flex: 1;
+  background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+  color: #0A0B10;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.ai-btn-play:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  color: #000;
+}
+
+.ai-btn-details {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E5E7EB;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-btn-details:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFF;
+}
+
+/* Lightbox Modal for Chatbot Photos */
+.ai-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(5, 6, 10, 0.95);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.ai-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ai-lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  object-fit: contain;
+}
+
+.ai-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ai-lightbox-close:hover {
+  background: rgba(212, 175, 55, 0.3);
+  border-color: #D4AF37;
+}
+
 .ai-typing {
   display: inline-flex;
   align-items: center;
@@ -1059,6 +1287,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   color: #FFF;
   font-size: 0.82rem;
   font-family: inherit;
+  cursor: text !important;
 }
 .ai-input-form input::placeholder {
   color: rgba(255, 255, 255, 0.35);
@@ -1103,6 +1332,263 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
     right: 12px;
     width: calc(100vw - 24px);
     height: min(480px, calc(100vh - 100px));
+  }
+}
+
+/* ============================================================
+   GAME PROMO POPUP WIDGET STYLES
+   ============================================================ */
+.game-popup-trigger {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9990;
+  height: 48px;
+  padding: 0 16px 0 12px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(20, 22, 34, 0.95), rgba(10, 11, 18, 0.95));
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 18px rgba(212, 175, 55, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.game-popup-trigger.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+.game-popup-trigger:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.35);
+}
+.game-trigger-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--gold, #D4AF37);
+  animation: gameControllerPulse 2s infinite ease-in-out;
+}
+@keyframes gameControllerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(-5deg); }
+}
+.game-trigger-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F3F4F6;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.game-trigger-badge {
+  background: linear-gradient(135deg, #D4AF37, #F5D061);
+  color: #0A0B10;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+/* Floating Game Popup Card */
+.game-popup-card {
+  position: fixed;
+  bottom: 84px;
+  left: 24px;
+  z-index: 9991;
+  width: min(340px, calc(100vw - 32px));
+  background: rgba(13, 14, 22, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.18);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.92);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.game-popup-card.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+
+.game-popup-header {
+  padding: 10px 14px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.12) 0%, rgba(20, 22, 34, 0.8) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.game-popup-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold, #D4AF37);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.game-popup-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.game-popup-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+}
+
+.game-popup-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.game-preview-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+}
+.game-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.game-preview-img-wrap:hover .game-preview-img {
+  transform: scale(1.05);
+}
+.game-preview-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(9, 10, 16, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #D4AF37);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.game-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.game-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFF;
+  line-height: 1.3;
+}
+.game-desc {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.game-popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.game-play-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #D4AF37 0%, #B89628 100%);
+  color: #0A0B10;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.25s ease;
+  border: none;
+}
+.game-play-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  color: #000;
+}
+.game-switch-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E5E7EB;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.game-switch-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(212, 175, 55, 0.4);
+  color: var(--gold, #D4AF37);
+}
+
+@media (max-width: 480px) {
+  .game-popup-trigger {
+    bottom: 18px;
+    left: 18px;
+    height: 42px;
+    padding: 0 12px 0 10px;
+  }
+  .game-trigger-text { font-size: 0.75rem; }
+  .game-popup-card {
+    bottom: 70px;
+    left: 12px;
+    width: calc(100vw - 24px);
   }
 }
 </style>
@@ -1689,17 +2175,19 @@ if (!isTouchDevice) {
     requestAnimationFrame(animCursor);
   }
   animCursor();
-  document.querySelectorAll('.hoverable, a, button, input, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => {
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('.hoverable, a, button, input, textarea, .ai-chip, .ai-photo-card, .ai-widget-launcher, .ai-icon-btn, .ai-btn-play, .ai-btn-details')) {
       cursor.style.width = '16px'; cursor.style.height = '16px';
       ring.style.width = '50px'; ring.style.height = '50px';
       ring.style.borderColor = 'rgba(201,168,76,.7)';
-    });
-    el.addEventListener('mouseleave', () => {
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('.hoverable, a, button, input, textarea, .ai-chip, .ai-photo-card, .ai-widget-launcher, .ai-icon-btn, .ai-btn-play, .ai-btn-details')) {
       cursor.style.width = '10px'; cursor.style.height = '10px';
       ring.style.width = '36px'; ring.style.height = '36px';
       ring.style.borderColor = 'rgba(201,168,76,.4)';
-    });
+    }
   });
 }
 
@@ -2231,7 +2719,9 @@ function handleSubmit(event) {
 
     <div class="ai-suggestions" id="aiSuggestions">
       <button class="ai-chip" onclick="handleAiChipClick('What are Anwarsha\'s top skills?')">⚡ Skills & Tech Stack</button>
+      <button class="ai-chip" onclick="handleAiChipClick('Play My Games')">🎮 Play My Games</button>
       <button class="ai-chip" onclick="handleAiChipClick('Tell me about your projects')">💻 Projects</button>
+      <button class="ai-chip" onclick="handleAiChipClick('Show me photos of Anwarsha')">📸 Photos</button>
       <button class="ai-chip" onclick="handleAiChipClick('What is your experience and internship?')">🎓 Experience</button>
       <button class="ai-chip" onclick="handleAiChipClick('How can I contact Anwarsha?')">📬 Contact Info</button>
       <button class="ai-chip" onclick="handleAiChipClick('Where can I download the resume?')">📄 Resume</button>
@@ -2249,74 +2739,378 @@ function handleSubmit(event) {
   </div>
 </div>
 
+<!-- ============================================================
+     GAME PROMO POPUP WIDGET MARKUP
+     ============================================================ -->
+<div id="gamePopupTrigger" class="game-popup-trigger" aria-label="Play My Games" role="button" tabindex="0" onclick="toggleGamePopup()" onmouseenter="pauseGamePopupCycle()" onmouseleave="resumeGamePopupCycle()">
+  <div class="game-trigger-icon">🎮</div>
+  <span class="game-trigger-text">Play My Games</span>
+  <span class="game-trigger-badge">Hot</span>
+</div>
+
+<div id="gamePopupCard" class="game-popup-card" aria-hidden="true" onmouseenter="pauseGamePopupCycle()" onmouseleave="resumeGamePopupCycle()">
+  <div class="game-popup-header">
+    <div class="game-popup-title">
+      <span>🎮 Play My Games</span>
+    </div>
+    <button class="game-popup-close" onclick="closeGamePopup(true)" title="Close pop-up" aria-label="Close pop-up">✕</button>
+  </div>
+  <div class="game-popup-body">
+    <div class="game-preview-img-wrap">
+      <picture id="gamePopupPicture">
+        <source id="gamePopupSource" srcset="Uploads/Anwarsha Game 1.webp" type="image/webp">
+        <img id="gamePopupImg" src="Uploads/Anwarsha Game 1.png" alt="Shadow Escape HTML5 Game" class="game-preview-img" width="320" height="140" loading="lazy">
+      </picture>
+      <div class="game-preview-tag" id="gamePopupTag">🕹️ 2D Platformer</div>
+    </div>
+    <div class="game-details">
+      <div class="game-name" id="gamePopupName">Shadow Escape — Browser Adventure</div>
+      <div class="game-desc" id="gamePopupDesc">Smooth 2D platformer game with custom physics, enemy guards, collectible crystals, and obstacle levels.</div>
+    </div>
+    <div class="game-popup-actions">
+      <a id="gamePopupPlayLink" href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="game-play-btn hoverable">
+        <span>Play Now</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <button class="game-switch-btn hoverable" onclick="nextGame(true)">
+        <span>Next</span> ➔
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ============================================================
 // ANWARSHA AI CHATBOT ENGINE
 // ============================================================
+// Lightbox viewer for chatbot photos
+function openAiPhotoLightbox(imgSrc, caption) {
+  let lightbox = document.getElementById('aiPhotoLightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'aiPhotoLightbox';
+    lightbox.className = 'ai-lightbox';
+    lightbox.innerHTML = `
+      <button class="ai-lightbox-close" onclick="closeAiPhotoLightbox()">✕</button>
+      <img id="aiLightboxImg" class="ai-lightbox-img" src="" alt="Full size photo" />
+    `;
+    document.body.appendChild(lightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeAiPhotoLightbox();
+    });
+  }
+  const img = document.getElementById('aiLightboxImg');
+  if (img) img.src = imgSrc;
+  lightbox.classList.add('open');
+}
+
+function closeAiPhotoLightbox() {
+  const lightbox = document.getElementById('aiPhotoLightbox');
+  if (lightbox) lightbox.classList.remove('open');
+}
+
+// Response Counters per intent to ensure non-repetitive answers for repeated questions
+const aiIntentCounters = {
+  greetings: 0,
+  photos: 0,
+  games: 0,
+  about: 0,
+  skills: 0,
+  projects: 0,
+  experience: 0,
+  education: 0,
+  contact: 0,
+  hiring: 0,
+  fallback: 0
+};
+
+const aiVariations = {
+  photos: [
+    `📸 <strong>Anwarsha's Featured Photos:</strong><br/>
+    Click any photo below to open in full size high-resolution view:<br/>
+    <div class="ai-photo-gallery">
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Anwarsha Internship 2.webp','Profile Photo')">
+        <img src="Uploads/Anwarsha Internship 2.webp" alt="Anwarsha Profile Photo" />
+        <div class="ai-photo-badge">Profile Photo</div>
+      </div>
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Anwarsha_Work.webp','Software Developer')">
+        <img src="Uploads/Anwarsha_Work.webp" alt="Anwarsha at Work" />
+        <div class="ai-photo-badge">Software Dev</div>
+      </div>
+    </div>
+    <span class="ai-img-caption">💡 Click any image to open full-screen preview!</span>`,
+
+    `📷 <strong>More Photos of Anwarsha:</strong><br/>
+    Professional portrait and NEST Digital internship memories:<br/>
+    <div class="ai-photo-gallery">
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Anwarsha prefessional.webp','Professional Portrait')">
+        <img src="Uploads/Anwarsha prefessional.webp" alt="Anwarsha Professional Portrait" />
+        <div class="ai-photo-badge">Professional</div>
+      </div>
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Internship.webp','NEST Digital Internship')">
+        <img src="Uploads/Internship.webp" alt="NEST Digital Internship" />
+        <div class="ai-photo-badge">NEST Digital</div>
+      </div>
+    </div>
+    <span class="ai-img-caption">💡 Click to view full image!</span>`,
+
+    `🖼️ <strong>Gallery Snapshot Highlights:</strong><br/>
+    Snapshots of Anwarsha N S coding & interning:<br/>
+    <div class="ai-photo-gallery">
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Anwarsha_Work.webp','Developer at Work')">
+        <img src="Uploads/Anwarsha_Work.webp" alt="Developer at Work" />
+        <div class="ai-photo-badge">Coding Work</div>
+      </div>
+      <div class="ai-photo-card" onclick="openAiPhotoLightbox('Uploads/Anwarsha Internship 2.webp','Internship')">
+        <img src="Uploads/Anwarsha Internship 2.webp" alt="Anwarsha Internship" />
+        <div class="ai-photo-badge">Internship</div>
+      </div>
+    </div>`
+  ],
+
+  games: [
+    `🎮 <strong>Anwarsha's Featured Browser Games:</strong><br/>
+    Click <strong>Play Now</strong> to start playing immediately in a new tab, or click <strong>View Details</strong> to read the case study:<br/>
+    <div class="ai-game-list">
+      <div class="ai-game-card">
+        <div class="ai-game-thumb-wrap">
+          <img src="Uploads/Anwarsha Game 1.webp" alt="Shadow Escape 2D Game" />
+          <span class="ai-game-tag">🕹️ 2D Platformer</span>
+        </div>
+        <div class="ai-game-info">
+          <div class="ai-game-title">Shadow Escape</div>
+          <div class="ai-game-desc">Atmospheric 2D platformer with guard enemy AI, crystal score collectibles, and keyboard/touch controls.</div>
+          <div class="ai-game-actions">
+            <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="ai-btn-play">🎮 Play Now →</a>
+            <button class="ai-btn-details" onclick="closeAiChatWindow(); openProject('shadowescape');">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="ai-game-card">
+        <div class="ai-game-thumb-wrap">
+          <img src="Uploads/Anwarsha N S Game 1.webp" alt="Imposter Game" />
+          <span class="ai-game-tag">🕵️ Multiplayer</span>
+        </div>
+        <div class="ai-game-info">
+          <div class="ai-game-title">Imposter Web Game</div>
+          <div class="ai-game-desc">Multiplayer social deduction game for 3-10 players with secret role assignment, discussion timer & voting.</div>
+          <div class="ai-game-actions">
+            <a href="https://imposteronlinegame.vercel.app/" target="_blank" rel="noopener" class="ai-btn-play">🎮 Play Now →</a>
+            <button class="ai-btn-details" onclick="closeAiChatWindow(); openProject('imposter');">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    💡 Want to see all projects? <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Projects section →</a>`,
+
+    `🕹️ <strong>Interactive Games Built by Anwarsha:</strong><br/>
+    Choose a game to play live in your browser:<br/>
+    <div class="ai-game-list">
+      <div class="ai-game-card">
+        <div class="ai-game-thumb-wrap">
+          <img src="Uploads/Anwarsha N S Game 1.webp" alt="Imposter Game" />
+          <span class="ai-game-tag">🕵️ Social Deduction</span>
+        </div>
+        <div class="ai-game-info">
+          <div class="ai-game-title">Imposter (3-10 Players)</div>
+          <div class="ai-game-desc">Real-time discussion, voting & imposter deduction web game!</div>
+          <div class="ai-game-actions">
+            <a href="https://imposteronlinegame.vercel.app/" target="_blank" rel="noopener" class="ai-btn-play">🎮 Play Imposter →</a>
+            <button class="ai-btn-details" onclick="closeAiChatWindow(); openProject('imposter');">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="ai-game-card">
+        <div class="ai-game-thumb-wrap">
+          <img src="Uploads/Anwarsha Game 1.webp" alt="Shadow Escape Game" />
+          <span class="ai-game-tag">🕹️ 2D Adventure</span>
+        </div>
+        <div class="ai-game-info">
+          <div class="ai-game-title">Shadow Escape Adventure</div>
+          <div class="ai-game-desc">Dodge guards, gather key items & clear levels in this fast platformer!</div>
+          <div class="ai-game-actions">
+            <a href="https://shadowescapegame.vercel.app/" target="_blank" rel="noopener" class="ai-btn-play">🎮 Play Shadow Escape →</a>
+            <button class="ai-btn-details" onclick="closeAiChatWindow(); openProject('shadowescape');">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>`
+  ],
+
+  greetings: [
+    `Hello! 👋 I'm <strong>Anwarsha's AI Assistant</strong>.<br/>
+    Anwarsha N S is a BCA graduate and Full Stack Software Developer from Kerala, India.<br/><br/>
+    How can I help you today? You can ask me about his:
+    <br/>• ⚡ <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Technical Skills & Stack</a>
+    <br/>• 🎮 <a href="javascript:void(0)" class="ai-chat-link" onclick="sendAiUserMessage('Play games')">Play Featured Browser Games</a>
+    <br/>• 💻 <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Projects (JobBridge, Imposter, Shadow Escape)</a>
+    <br/>• 📸 <a href="javascript:void(0)" class="ai-chat-link" onclick="sendAiUserMessage('Show photos')">Photos & Gallery</a>
+    <br/>• 🎓 <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">Work Experience & Internships</a>`,
+
+    `Hey there! 😊 Great to connect with you!<br/>
+    I can share details about Anwarsha's full-stack applications, photo gallery, playable web games, internships, or contact links. What would you like to explore first?`,
+
+    `Welcome! 🚀 Ready to explore Anwarsha's portfolio?<br/>
+    You can play games like **Shadow Escape** and **Imposter**, request photos of Anwarsha, or check out his full-stack **JobBridge** portal!`
+  ],
+
+  skills: [
+    `⚡ <strong>Anwarsha's Detailed Tech Stack:</strong><br/>
+    • <strong>Backend & Languages:</strong> Python, Django, Java, PHP, REST APIs<br/>
+    • <strong>Frontend:</strong> Angular, JavaScript (ES6+), HTML5, CSS3, Bootstrap, Tailwind<br/>
+    • <strong>Database:</strong> MySQL (Relational DB Design & Query Optimization)<br/>
+    • <strong>Tools & Deployment:</strong> Git, GitHub, Vercel, WampServer/Apache, SEO Optimization<br/><br/>
+    View full technical breakdown in the <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Skills section →</a>`,
+
+    `🛠️ <strong>Technical Capabilities & Focus:</strong><br/>
+    Anwarsha builds end-to-end applications. He focuses on Python/Django for server-side logic and database architecture, paired with Angular & modern ES6+ JavaScript for responsive interfaces.<br/><br/>
+    <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Explore Skills in Portfolio →</a>`,
+
+    `💻 <strong>Core Development Tools:</strong><br/>
+    Python, Java, PHP, Angular, JavaScript, MySQL database engineering, RESTful API architecture, Git/GitHub version control, and web performance optimization.<br/><br/>
+    <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Skills section →</a>`
+  ],
+
+  projects: [
+    `🚀 <strong>Anwarsha's Main Projects:</strong><br/>
+    1. <strong>JobBridge</strong> — Inclusive Python Django job portal (<a href="https://github.com/anwarshans/JobBridge" target="_blank" class="ai-chat-link">GitHub</a>)<br/>
+    2. <strong>Imposter</strong> — Multiplayer web game (<a href="https://imposteronlinegame.vercel.app/" target="_blank" class="ai-chat-link">Play Live</a>)<br/>
+    3. <strong>Shadow Escape</strong> — 2D HTML5 platformer adventure (<a href="https://shadowescapegame.vercel.app/" target="_blank" class="ai-chat-link">Play Live</a>)<br/><br/>
+    <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Explore interactive case studies in Projects →</a>`,
+
+    `💻 <strong>Key Software & Game Creations:</strong><br/>
+    • <strong>Imposter Game</strong> (3-10 players, secret role reveal, voting & word library) -> <a href="https://imposteronlinegame.vercel.app/" target="_blank" class="ai-chat-link">Play Live</a><br/>
+    • <strong>JobBridge Recruitment Portal</strong> (Django + MySQL job matching for all qualification levels) -> <a href="https://github.com/anwarshans/JobBridge" target="_blank" class="ai-chat-link">GitHub Repo</a><br/>
+    • <strong>Shadow Escape</strong> (HTML5 platformer with guard AI and crystal collectibles) -> <a href="https://shadowescapegame.vercel.app/" target="_blank" class="ai-chat-link">Play Live</a><br/><br/>
+    <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Projects section →</a>`,
+
+    `🎮 <strong>Featured Web & Game Development Work:</strong><br/>
+    From full-stack Django portals like **JobBridge** to web games like **Imposter** and **Shadow Escape**, Anwarsha builds engaging, high-performance applications!<br/><br/>
+    <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">View all projects →</a>`
+  ],
+
+  experience: [
+    `🎓 <strong>Work Experience & Internships:</strong><br/>
+    1. <strong>Santhisoft Technologies (8 Months):</strong> Software Developer Intern. Developed front-end and back-end modules for <em>JobBridge</em> using Python, Django, and MySQL.<br/>
+    2. <strong>NEST Digital, Ernakulam:</strong> Front-End Development Intern (2025). Built responsive UI components and modern web software architectures.<br/><br/>
+    <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Experience section →</a>`,
+
+    `💼 <strong>Practical Industry Background:</strong><br/>
+    Anwarsha completed an 8-month Software Developer Internship at Santhisoft Technologies, contributing to both backend API logic and frontend modules for JobBridge. He also completed a Front-End Development Internship at NEST Digital.<br/><br/>
+    <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">View Experience timeline →</a>`,
+
+    `🌟 <strong>Hands-on Development Track:</strong><br/>
+    With 8 months of internship experience at Santhisoft Technologies and front-end engineering training at NEST Digital, Anwarsha has practical experience delivering real-world code.<br/><br/>
+    <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Experience section →</a>`
+  ],
+
+  contact: [
+    `📬 <strong>Contact & Online Presence:</strong><br/>
+    • <strong>Email:</strong> <a href="mailto:anwarshans.dev@gmail.com" class="ai-chat-link">anwarshans.dev@gmail.com</a><br/>
+    • <strong>Location:</strong> Kerala, India<br/>
+    • <strong>Official Site:</strong> <a href="https://anwarshans.me/" target="_blank" class="ai-chat-link">anwarshans.me</a><br/>
+    • <strong>Vercel Mirror:</strong> <a href="https://anwarshans.vercel.app/" target="_blank" class="ai-chat-link">anwarshans.vercel.app</a><br/>
+    • <strong>GitHub:</strong> <a href="https://github.com/anwarshans" target="_blank" class="ai-chat-link">github.com/anwarshans</a><br/>
+    • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anwarshans/" target="_blank" class="ai-chat-link">linkedin.com/in/anwarshans</a><br/><br/>
+    <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">Go to Contact Form →</a>`,
+
+    `🌐 <strong>Connect with Anwarsha:</strong><br/>
+    You can reach Anwarsha directly via email at <a href="mailto:anwarshans.dev@gmail.com" class="ai-chat-link">anwarshans.dev@gmail.com</a> or visit his social profiles on <a href="https://github.com/anwarshans" target="_blank" class="ai-chat-link">GitHub</a> and <a href="https://www.linkedin.com/in/anwarshans/" target="_blank" class="ai-chat-link">LinkedIn</a>.<br/><br/>
+    <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">Send a Message →</a>`
+  ],
+
+  about: [
+    `👨‍💻 <strong>About Anwarsha N S:</strong><br/>
+    Anwarsha is a dedicated <strong>Full Stack Software Developer</strong> & BCA graduate based in Kerala, India.<br/><br/>
+    Key Highlights:
+    <br/>• <strong>Internships:</strong> NEST Digital (Front-End) & Santhisoft Technologies (8-month Software Developer Internship).
+    <br/>• <strong>Specialties:</strong> Python, Django, Java, PHP, Angular, JavaScript (ES6+), and MySQL.<br/><br/>
+    <a href="#about" class="ai-chat-link" onclick="closeAiChatWindow()">Go to About section →</a>`,
+
+    `⭐ <strong>Who is Anwarsha?</strong><br/>
+    He is a software developer with hands-on experience across full-stack web applications, database optimization, and web game development. He holds a BCA degree and internship certificates from Santhisoft Technologies and NEST Digital.<br/><br/>
+    <a href="#about" class="ai-chat-link" onclick="closeAiChatWindow()">Go to About section →</a>`
+  ],
+
+  fallback: [
+    `I'm here to help! You can ask me about Anwarsha's ⚡ <strong>Skills</strong>, 🎮 <strong>Games</strong>, 💻 <strong>Projects</strong>, 📸 <strong>Photos</strong>, 🎓 <strong>Experience at NEST Digital & Santhisoft</strong>, or 📬 <strong>Contact Info</strong>!`,
+    `Feel free to ask about Anwarsha's photos, games, tech stack, job portals, or email address! What would you like to know next?`
+  ]
+};
+
+function getNextAiVariation(intent) {
+  const variations = aiVariations[intent] || aiVariations.fallback;
+  const currentIndex = aiIntentCounters[intent] || 0;
+  const response = variations[currentIndex % variations.length];
+  aiIntentCounters[intent] = currentIndex + 1;
+  return response;
+}
+
 function getAiResponse(userQuery) {
   const query = userQuery.toLowerCase().trim();
 
-  // 1. Greetings
+  // 1. Photo Requests
+  if (/photo|picture|image|pic|face|look|portrait|gallery|show photo|show picture|send photo|view photo/i.test(query)) {
+    return getNextAiVariation('photos');
+  }
+
+  // 2. Games Intent
+  if (/game|play|gaming|shadow\s*escape|imposter|platformer|social\s*deduction/i.test(query)) {
+    return getNextAiVariation('games');
+  }
+
+  // 3. Greetings
   if (/^(hi|hello|hey|greetings|hola|namaste|sup|good\s(morning|afternoon|evening))/i.test(query)) {
-    return `Hello! 👋 How can I help you learn more about Anwarsha today? You can ask about his <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">skills</a>, <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">projects</a>, or <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">contact details</a>!`;
+    return getNextAiVariation('greetings');
   }
 
-  // 2. Skills / Tech Stack
-  if (/skill|tech|stack|language|framework|python|django|java|php|angular|javascript|mysql|code|coding|develop/i.test(query)) {
-    return `⚡ <strong>Anwarsha's Core Technical Skills:</strong><br/>
-    • <strong>Languages:</strong> Python, Java, PHP, JavaScript (ES6+)<br/>
-    • <strong>Frameworks:</strong> Django, Angular<br/>
-    • <strong>Database & Web:</strong> MySQL, HTML5, CSS3, REST APIs, Git<br/><br/>
-    Check out his full tech stack under the <a href="#skills" class="ai-chat-link" onclick="closeAiChatWindow()">Skills section</a>!`;
+  // 4. Who is Anwarsha / About
+  if (/who|about|anwar|anwarsha|bio|background|tell\s*me\s*about|qualification/i.test(query)) {
+    return getNextAiVariation('about');
   }
 
-  // 3. Projects (Imposter, JobBridge, Shadow Escape)
-  if (/project|imposter|jobbridge|shadow\s*escape|portfolio|built|game|app|work/i.test(query)) {
-    if (/imposter/i.test(query)) {
-      return `🎮 <strong>Imposter Project:</strong><br/>An interactive application showcasing creative problem-solving and clean code architecture.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">View in Projects section →</a>`;
-    }
+  // 5. Skills / Tech Stack
+  if (/skill|tech|stack|language|framework|python|django|java|php|angular|javascript|mysql|bootstrap|tailwind|git|api|code|coding|develop/i.test(query)) {
+    return getNextAiVariation('skills');
+  }
+
+  // 6. Projects Breakdown
+  if (/project|jobbridge|portfolio|built|app|work/i.test(query)) {
     if (/jobbridge/i.test(query)) {
-      return `💼 <strong>JobBridge Project:</strong><br/>A full-stack job portal web application connecting job seekers and employers with job matching and tracking.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">View in Projects section →</a>`;
+      return `💼 <strong>JobBridge — Inclusive Recruitment Portal:</strong><br/>
+      A Python Django & MySQL platform built during an 8-month internship at Santhisoft Technologies.<br/>
+      • <strong>Key Features:</strong> Connects recruiters and job seekers (10th Fail to Postgraduate levels), skill/location job matching, and applicant tracking.<br/>
+      • <strong>GitHub Repo:</strong> <a href="https://github.com/anwarshans/JobBridge" target="_blank" rel="noopener" class="ai-chat-link">github.com/anwarshans/JobBridge</a><br/>
+      • <button class="ai-btn-details" style="margin-top:6px" onclick="closeAiChatWindow(); openProject('jobbridge');">Open Case Study Modal →</button>`;
     }
-    if (/shadow/i.test(query)) {
-      return `🕹️ <strong>Shadow Escape Game:</strong><br/>An atmospheric HTML5 browser platformer game built with custom physics and smooth controls.<br/><a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Play & View in Projects →</a>`;
-    }
-    return `🚀 <strong>Anwarsha's Featured Projects:</strong><br/>
-    1. <strong>Imposter</strong> — Interactive application<br/>
-    2. <strong>JobBridge</strong> — Full-stack Job Portal platform<br/>
-    3. <strong>Shadow Escape</strong> — HTML5 browser platformer game<br/><br/>
-    Explore all live demos and code in the <a href="#projects" class="ai-chat-link" onclick="closeAiChatWindow()">Projects section</a>!`;
+    return getNextAiVariation('projects');
   }
 
-  // 4. Experience & Internship
-  if (/experience|intern|nest|digital|company|job|work\s*history|background/i.test(query)) {
-    return `🎓 <strong>Experience & Background:</strong><br/>
-    Anwarsha completed a Full Stack Developer internship at <strong>NEST Digital</strong>, gaining real-world experience developing enterprise web solutions.<br/><br/>
-    Visit the <a href="#experience" class="ai-chat-link" onclick="closeAiChatWindow()">Experience section</a> to see more!`;
+  // 7. Experience & Internships
+  if (/experience|intern|nest|santhisoft|company|job|work\s*history|history/i.test(query)) {
+    return getNextAiVariation('experience');
   }
 
-  // 5. Contact / Hire / Email
-  if (/contact|email|reach|hire|message|phone|connect|linkedin|github|gmail/i.test(query)) {
-    return `📬 <strong>Get in Touch with Anwarsha:</strong><br/>
-    • <strong>Email:</strong> <a href="mailto:anwarshans.dev@gmail.com" class="ai-chat-link">anwarshans.dev@gmail.com</a><br/>
-    • <strong>Location:</strong> Kerala, India<br/>
-    • <strong>GitHub:</strong> <a href="https://github.com/anwarshans" target="_blank" rel="noopener" class="ai-chat-link">github.com/anwarshans</a><br/><br/>
-    You can also send a message directly using the <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">Contact Form</a>!`;
+  // 8. Contact / Links
+  if (/contact|email|gmail|reach|message|phone|connect|linkedin|github|domain|url|website|site/i.test(query)) {
+    return getNextAiVariation('contact');
   }
 
-  // 6. Resume / CV
+  // 9. Hiring / Availability
+  if (/hire|available|job|full-time|freelance|remote|opportunity|work/i.test(query)) {
+    return `💼 <strong>Job Availability:</strong><br/>
+    Anwarsha is <strong>actively available</strong> for Full Stack Software Developer, Python/Django Developer, and Front-End Software Engineering roles (Remote, Hybrid, or Onsite).<br/><br/>
+    Feel free to email him directly at <a href="mailto:anwarshans.dev@gmail.com" class="ai-chat-link">anwarshans.dev@gmail.com</a> or send a message via the <a href="#contact" class="ai-chat-link" onclick="closeAiChatWindow()">Contact Form →</a>`;
+  }
+
+  // 10. Resume
   if (/resume|cv|download|document|pdf/i.test(query)) {
-    return `📄 You can view and download Anwarsha's full resume using the Resume button on the site or ask me any question about his background!`;
-  }
-
-  // 7. Who is Anwarsha / About
-  if (/who|about|anwar|anwarsha|bio|tell\s*me\s*about/i.test(query)) {
-    return `👨‍💻 <strong>About Anwarsha N S:</strong><br/>
-    Anwarsha is a passionate <strong>Full Stack Developer & Software Engineer</strong> from Kerala, India. He builds web applications, interactive games, and scalable backend systems using Python, Django, Java, Angular, and PHP.`;
+    return `📄 <strong>Anwarsha's Resume:</strong><br/>
+    You can view and download his complete resume directly from the website header or ask me about any specific project/experience details!`;
   }
 
   // Fallback
-  return `I'm not sure about that specific query, but I can tell you all about Anwarsha's ⚡ <strong>Skills</strong>, 💻 <strong>Projects</strong> (Imposter, JobBridge, Shadow Escape), 🎓 <strong>Experience</strong>, or 📬 <strong>Contact info</strong>! What would you like to explore?`;
+  return getNextAiVariation('fallback');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2360,7 +3154,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <div class="ai-suggestions" id="aiSuggestions">
         <button class="ai-chip" onclick="handleAiChipClick('What are Anwarsha\\\'s top skills?')">⚡ Skills & Tech Stack</button>
+        <button class="ai-chip" onclick="handleAiChipClick('Play My Games')">🎮 Play My Games</button>
         <button class="ai-chip" onclick="handleAiChipClick('Tell me about your projects')">💻 Projects</button>
+        <button class="ai-chip" onclick="handleAiChipClick('Show me photos of Anwarsha')">📸 Photos</button>
         <button class="ai-chip" onclick="handleAiChipClick('What is your experience and internship?')">🎓 Experience</button>
         <button class="ai-chip" onclick="handleAiChipClick('How can I contact Anwarsha?')">📬 Contact Info</button>
         <button class="ai-chip" onclick="handleAiChipClick('Where can I download the resume?')">📄 Resume</button>
@@ -2446,6 +3242,164 @@ function sendAiUserMessage(text) {
 function escapeHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
+
+// ============================================================
+// GAME PROMO POPUP LOGIC (INTERVAL CYCLE)
+// ============================================================
+const portfolioGames = [
+  {
+    name: 'Shadow Escape — 2D Platformer',
+    tag: '🕹️ HTML5 Browser Game',
+    desc: 'An atmospheric platformer game with custom physics, enemy guards, collectible crystals, key progression, and fast browser gameplay.',
+    webp: 'Uploads/Anwarsha Game 1.webp',
+    png: 'Uploads/Anwarsha Game 1.png',
+    link: 'https://shadowescapegame.vercel.app/'
+  },
+  {
+    name: 'Imposter — Social Deduction Game',
+    tag: '🕵️ Multiplayer Game',
+    desc: 'Interactive 3-10 player social deduction web game. Discuss clues, spot secret roles, vote out imposters, or blend in to win!',
+    webp: 'Uploads/Anwarsha N S Game 1.webp',
+    png: 'Uploads/Anwarsha N S Game 1.png',
+    link: 'https://imposteronlinegame.vercel.app/'
+  }
+];
+
+let currentGameIdx = 0;
+let isGamePopupOpen = false;
+let gamePopupAutoTimer = null;
+let gamePopupHideTimer = null;
+let isUserHoveringPopup = false;
+let isManualClosed = false;
+
+function renderGamePopupContent(idx) {
+  const g = portfolioGames[idx];
+  const sourceEl = document.getElementById('gamePopupSource');
+  const imgEl = document.getElementById('gamePopupImg');
+  const tagEl = document.getElementById('gamePopupTag');
+  const nameEl = document.getElementById('gamePopupName');
+  const descEl = document.getElementById('gamePopupDesc');
+  const linkEl = document.getElementById('gamePopupPlayLink');
+
+  if (sourceEl) sourceEl.srcset = g.webp;
+  if (imgEl) {
+    imgEl.src = g.png;
+    imgEl.alt = g.name;
+  }
+  if (tagEl) tagEl.textContent = g.tag;
+  if (nameEl) nameEl.textContent = g.name;
+  if (descEl) descEl.textContent = g.desc;
+  if (linkEl) linkEl.href = g.link;
+}
+
+function nextGame(manual = false) {
+  currentGameIdx = (currentGameIdx + 1) % portfolioGames.length;
+  const bodyEl = document.querySelector('.game-popup-body');
+  if (bodyEl) {
+    bodyEl.style.opacity = '0.3';
+    bodyEl.style.transform = 'scale(0.97)';
+    setTimeout(() => {
+      renderGamePopupContent(currentGameIdx);
+      bodyEl.style.opacity = '1';
+      bodyEl.style.transform = 'scale(1)';
+    }, 150);
+  } else {
+    renderGamePopupContent(currentGameIdx);
+  }
+  if (manual && isGamePopupOpen) {
+    scheduleAutoHide(10000);
+  }
+}
+
+function openGamePopup(autoCycle = false) {
+  const trigger = document.getElementById('gamePopupTrigger');
+  const card = document.getElementById('gamePopupCard');
+  if (!card) return;
+  
+  if (autoCycle) {
+    nextGame(false);
+  }
+
+  if (trigger) trigger.classList.add('show');
+  card.classList.add('show');
+  card.setAttribute('aria-hidden', 'false');
+  isGamePopupOpen = true;
+
+  scheduleAutoHide(8000);
+}
+
+function closeGamePopup(manual = true) {
+  const trigger = document.getElementById('gamePopupTrigger');
+  const card = document.getElementById('gamePopupCard');
+  if (!card) return;
+
+  card.classList.remove('show');
+  if (trigger) trigger.classList.remove('show');
+  card.setAttribute('aria-hidden', 'true');
+  isGamePopupOpen = false;
+  clearTimeout(gamePopupHideTimer);
+
+  if (manual) {
+    isManualClosed = true;
+    clearTimeout(gamePopupAutoTimer);
+    gamePopupAutoTimer = setTimeout(() => {
+      isManualClosed = false;
+      startIntervalCycle();
+    }, 60000);
+  }
+}
+
+function scheduleAutoHide(delayMs) {
+  clearTimeout(gamePopupHideTimer);
+  gamePopupHideTimer = setTimeout(() => {
+    if (isGamePopupOpen && !isUserHoveringPopup) {
+      closeGamePopup(false);
+    }
+  }, delayMs);
+}
+
+function pauseGamePopupCycle() {
+  isUserHoveringPopup = true;
+  clearTimeout(gamePopupHideTimer);
+}
+
+function resumeGamePopupCycle() {
+  isUserHoveringPopup = false;
+  if (isGamePopupOpen) {
+    scheduleAutoHide(4000);
+  }
+}
+
+function toggleGamePopup() {
+  if (isGamePopupOpen) {
+    closeGamePopup(true);
+  } else {
+    isManualClosed = false;
+    openGamePopup(false);
+  }
+}
+
+function startIntervalCycle() {
+  if (isManualClosed) return;
+  clearTimeout(gamePopupAutoTimer);
+  gamePopupAutoTimer = setTimeout(() => {
+    if (!isGamePopupOpen && !isManualClosed) {
+      openGamePopup(true);
+    }
+    startIntervalCycle();
+  }, 22000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderGamePopupContent(0);
+  setTimeout(() => {
+    if (!isManualClosed) {
+      openGamePopup(false);
+      startIntervalCycle();
+    }
+  }, 3500);
+});
 </script>
 </body>
 </html>
