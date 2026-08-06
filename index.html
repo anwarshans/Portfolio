@@ -639,6 +639,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hero-location{left:50%;bottom:12%;transform:translateX(-50%)}
   .hero-profile{bottom:3%}
   .about-shell{grid-template-columns:1fr}
+  .about-photo-card img{height:280px;object-fit:cover;object-position:center 20%;flex:none}
   .about-profile{border-left:none;border-top:1px solid var(--border)}
   h1.hero-title{font-size:2.2rem}
   .hero-title{max-width:100%}
@@ -720,7 +721,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 2.5r
   .hero-card{align-self:center;margin-top:0}
   .hero-photo-wrap{margin:0 auto}
   .about-visual{padding:.35rem}
-  .about-photo-card img{border-radius:10px 10px 0 0}
+  .about-photo-card img{height:250px;border-radius:10px 10px 0 0}
   .about-photo-caption{border-radius:0 0 10px 10px}
   .profile-card{padding:.55rem .65rem}
   .profile-icon{width:28px;height:28px}
@@ -3128,6 +3129,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isOpen) {
       closeAiChatWindow();
     } else {
+      if (typeof hideTriggerPill === 'function') hideTriggerPill();
+      if (typeof closeGamePopup === 'function') closeGamePopup(false);
       chatWindow.classList.add('open');
       launcher.classList.add('active');
       chatWindow.setAttribute('aria-hidden', 'false');
@@ -3244,7 +3247,7 @@ function escapeHtml(str) {
 }
 
 // ============================================================
-// GAME PROMO POPUP LOGIC (INTERVAL CYCLE)
+// GAME PROMO POPUP LOGIC (INTERVAL PILL CYCLE)
 // ============================================================
 const portfolioGames = [
   {
@@ -3266,11 +3269,11 @@ const portfolioGames = [
 ];
 
 let currentGameIdx = 0;
-let isGamePopupOpen = false;
-let gamePopupAutoTimer = null;
-let gamePopupHideTimer = null;
+let isGameCardOpen = false;
+let isPillVisible = false;
+let pillHideTimer = null;
+let intervalTimer = null;
 let isUserHoveringPopup = false;
-let isManualClosed = false;
 
 function renderGamePopupContent(idx) {
   const g = portfolioGames[idx];
@@ -3306,100 +3309,113 @@ function nextGame(manual = false) {
   } else {
     renderGamePopupContent(currentGameIdx);
   }
-  if (manual && isGamePopupOpen) {
-    scheduleAutoHide(10000);
-  }
 }
 
-function openGamePopup(autoCycle = false) {
+function isAiChatActiveOrPrompting() {
+  const chatWindow = document.getElementById('aiChatWindow');
+  const tooltip = document.getElementById('aiTooltip');
+  const isChatOpen = chatWindow && chatWindow.classList.contains('open');
+  const isTooltipShowing = tooltip && tooltip.classList.contains('show');
+  return isChatOpen || isTooltipShowing;
+}
+
+function showTriggerPill() {
+  if (isGameCardOpen) return;
+  if (isAiChatActiveOrPrompting()) return;
+  const trigger = document.getElementById('gamePopupTrigger');
+  if (!trigger) return;
+
+  trigger.classList.add('show');
+  isPillVisible = true;
+
+  schedulePillHide(8000);
+}
+
+function hideTriggerPill() {
+  if (isGameCardOpen || isUserHoveringPopup) return;
+  const trigger = document.getElementById('gamePopupTrigger');
+  if (trigger) trigger.classList.remove('show');
+  isPillVisible = false;
+  clearTimeout(pillHideTimer);
+}
+
+function schedulePillHide(delayMs) {
+  clearTimeout(pillHideTimer);
+  pillHideTimer = setTimeout(() => {
+    hideTriggerPill();
+  }, delayMs);
+}
+
+function openGamePopup() {
   const trigger = document.getElementById('gamePopupTrigger');
   const card = document.getElementById('gamePopupCard');
   if (!card) return;
-  
-  if (autoCycle) {
-    nextGame(false);
-  }
 
   if (trigger) trigger.classList.add('show');
   card.classList.add('show');
   card.setAttribute('aria-hidden', 'false');
-  isGamePopupOpen = true;
-
-  scheduleAutoHide(8000);
+  isGameCardOpen = true;
+  clearTimeout(pillHideTimer);
 }
 
 function closeGamePopup(manual = true) {
   const trigger = document.getElementById('gamePopupTrigger');
   const card = document.getElementById('gamePopupCard');
-  if (!card) return;
-
-  card.classList.remove('show');
-  if (trigger) trigger.classList.remove('show');
-  card.setAttribute('aria-hidden', 'true');
-  isGamePopupOpen = false;
-  clearTimeout(gamePopupHideTimer);
-
-  if (manual) {
-    isManualClosed = true;
-    clearTimeout(gamePopupAutoTimer);
-    gamePopupAutoTimer = setTimeout(() => {
-      isManualClosed = false;
-      startIntervalCycle();
-    }, 60000);
+  if (card) {
+    card.classList.remove('show');
+    card.setAttribute('aria-hidden', 'true');
   }
-}
+  isGameCardOpen = false;
 
-function scheduleAutoHide(delayMs) {
-  clearTimeout(gamePopupHideTimer);
-  gamePopupHideTimer = setTimeout(() => {
-    if (isGamePopupOpen && !isUserHoveringPopup) {
-      closeGamePopup(false);
-    }
-  }, delayMs);
-}
-
-function pauseGamePopupCycle() {
-  isUserHoveringPopup = true;
-  clearTimeout(gamePopupHideTimer);
-}
-
-function resumeGamePopupCycle() {
-  isUserHoveringPopup = false;
-  if (isGamePopupOpen) {
-    scheduleAutoHide(4000);
+  if (manual && trigger) {
+    trigger.classList.remove('show');
+    isPillVisible = false;
   }
 }
 
 function toggleGamePopup() {
-  if (isGamePopupOpen) {
+  if (isGameCardOpen) {
     closeGamePopup(true);
   } else {
-    isManualClosed = false;
-    openGamePopup(false);
+    openGamePopup();
+  }
+}
+
+function pauseGamePopupCycle() {
+  isUserHoveringPopup = true;
+  clearTimeout(pillHideTimer);
+}
+
+function resumeGamePopupCycle() {
+  isUserHoveringPopup = false;
+  if (isPillVisible && !isGameCardOpen) {
+    schedulePillHide(3000);
   }
 }
 
 function startIntervalCycle() {
-  if (isManualClosed) return;
-  clearTimeout(gamePopupAutoTimer);
-  gamePopupAutoTimer = setTimeout(() => {
-    if (!isGamePopupOpen && !isManualClosed) {
-      openGamePopup(true);
+  clearTimeout(intervalTimer);
+  intervalTimer = setInterval(() => {
+    if (!isGameCardOpen && !isPillVisible) {
+      showTriggerPill();
     }
+  }, 40000);
+}
+
+function initGamePromoPopup() {
+  renderGamePopupContent(0);
+  // Relaxed initial delay (22 seconds after load)
+  setTimeout(() => {
+    showTriggerPill();
     startIntervalCycle();
   }, 22000);
 }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-  renderGamePopupContent(0);
-  setTimeout(() => {
-    if (!isManualClosed) {
-      openGamePopup(false);
-      startIntervalCycle();
-    }
-  }, 3500);
-});
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGamePromoPopup);
+} else {
+  initGamePromoPopup();
+}
 </script>
 </body>
 </html>
