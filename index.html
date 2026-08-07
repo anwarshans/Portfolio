@@ -244,9 +244,18 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-
 #certificates,#achievements,#contact{content-visibility:auto;contain-intrinsic-size:1px 700px}
 .about-shell,.skill-cat,.proj-card,.cert-card,.ach-card,.contact-form{will-change:transform;backface-visibility:hidden;transform:translateZ(0)}
 
+/* ── SMOOTH TACTILE CLICK FEEDBACK ── */
+a, button, input[type="submit"], .btn, .nav-cta, .submit-btn, .filter-btn, .proj-card, .skill-cat, .cert-card, .ach-card, .ai-chip, .ai-widget-launcher, .game-popup-trigger, .cinfo-item, .about-social-link, .nav-logo {
+  touch-action: manipulation;
+}
+.btn:active, .nav-cta:active, .submit-btn:active, .filter-btn:active, .proj-card:active, .skill-cat:active, .cert-card:active, .ach-card:active, .ai-chip:active, .ai-widget-launcher:active, .game-popup-trigger:active, .modal-close:active, .ai-icon-btn:active, .ai-send-btn:active, .ai-btn-play:active, .ai-btn-details:active, .game-play-btn:active, .game-switch-btn:active, .about-social-link:active {
+  transform: scale(0.96) translateZ(0) !important;
+  transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
 /* ── CUSTOM CURSOR ── */
-#cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:100001;will-change:transform;transition:width .2s,height .2s,opacity .2s;mix-blend-mode:screen;box-shadow:0 0 12px var(--gold)}
-#cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,175,55,.45);pointer-events:none;z-index:100000;will-change:transform;transition:width .2s,height .2s,border-color .2s,box-shadow .2s}
+#cursor{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:100001;will-change:transform;transition:width .22s ease,height .22s ease,opacity .2s ease;mix-blend-mode:screen;box-shadow:0 0 12px var(--gold)}
+#cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,175,55,.45);pointer-events:none;z-index:100000;will-change:transform;transition:width .25s ease,height .25s ease,border-color .25s ease,box-shadow .25s ease}
 body:hover #cursor{opacity:1}
 .hoverable{cursor:none}
 
@@ -261,7 +270,8 @@ body:hover #cursor{opacity:1}
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:68px;display:flex;align-items:center;justify-content:space-between;transition:all .4s cubic-bezier(.16,1,.3,1)}
 nav.scrolled{background:rgba(7,8,14,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);box-shadow:0 12px 36px rgba(0,0,0,.6)}
-.nav-logo{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:1.02rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.02em;position:relative}
+.nav-logo{display:inline-flex;align-items:center;gap:.65rem;font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;position:relative}
+.nav-logo .logo-accent{color:var(--gold2);font-weight:600}
 .nav-logo-img{height:34px;width:34px;object-fit:contain;border-radius:8px;transition:transform .3s ease,box-shadow .3s ease;vertical-align:middle;box-shadow:0 0 12px rgba(212,175,55,.2)}
 .nav-logo:hover .nav-logo-img{transform:scale(1.1) rotate(2deg);box-shadow:0 0 20px rgba(212,175,55,.4)}
 .nav-logo::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--grad);transition:width .3s}
@@ -317,13 +327,13 @@ h1.hero-title{font-size:clamp(2.45rem,4.4vw,4rem);font-weight:800;line-height:1.
 
 /* ── HERO CARD ── */
 .hero-card{position:relative;display:flex;align-items:center;justify-content:center;min-height:640px;transform-style:preserve-3d;align-self:start;margin-top:-40px}
-.hero-card::before{content:'';position:absolute;inset:4rem auto auto 50%;width:clamp(300px,34vw,440px);height:clamp(300px,34vw,440px);border-radius:50%;border:1px solid rgba(255,255,255,.28);box-shadow:0 0 25px rgba(255,255,255,.1) inset;pointer-events:none;transform:translateX(-50%);animation:pulseRing 4s ease-in-out infinite}
-@keyframes pulseRing{0%,100%{transform:translateX(-50%) scale(1);opacity:.6}50%{transform:translateX(-50%) scale(1.04);opacity:.9}}
-.hero-card::after{content:'';position:absolute;inset:2.5rem auto auto 50%;width:clamp(320px,38vw,470px);height:clamp(320px,38vw,470px);border-radius:50%;border:1px solid rgba(212,175,55,.35);box-shadow:0 0 25px rgba(212,175,55,.18);opacity:.55;pointer-events:none;transform:translateX(-50%)}
-.hero-photo-wrap{position:relative;width:clamp(280px,31vw,410px);height:clamp(280px,31vw,410px);border-radius:50%;padding:8px;background:linear-gradient(135deg,#FFFFFF 0%,#F8FAFC 45%,#E2E8F0 75%,#D4AF37 100%);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 35px rgba(255,255,255,.35),0 0 20px rgba(212,175,55,.2);transition:transform .5s ease}
+.hero-card::before{content:'';position:absolute;inset:4rem auto auto 50%;width:clamp(300px,34vw,440px);height:clamp(300px,34vw,440px);border-radius:50%;border:1px solid rgba(212,175,55,.18);pointer-events:none;transform:translateX(-50%);animation:pulseRing 4s ease-in-out infinite}
+@keyframes pulseRing{0%,100%{transform:translateX(-50%) scale(1);opacity:.4}50%{transform:translateX(-50%) scale(1.03);opacity:.7}}
+.hero-card::after{content:'';position:absolute;inset:2.5rem auto auto 50%;width:clamp(320px,38vw,470px);height:clamp(320px,38vw,470px);border-radius:50%;border:1px solid rgba(212,175,55,.12);opacity:.35;pointer-events:none;transform:translateX(-50%)}
+.hero-photo-wrap{position:relative;width:clamp(280px,31vw,410px);height:clamp(280px,31vw,410px);border-radius:50%;padding:5px;background:linear-gradient(135deg,#FFFFFF 0%,#E2E8F0 60%,#D4AF37 100%);box-shadow:0 20px 50px rgba(0,0,0,.75),0 0 15px rgba(255,255,255,.15),0 0 20px rgba(212,175,55,.2);transition:transform .5s ease}
 .hero-photo-wrap:hover{transform:scale(1.02)}
-.hero-photo-wrap::after{content:'';position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(255,255,255,.45);box-shadow:0 0 15px rgba(255,255,255,.2);pointer-events:none}
-.hero-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#fff}
+.hero-photo-wrap::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(255,255,255,.25);pointer-events:none}
+.hero-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#0e101b}
 .hero-profile{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.25rem;text-align:center;width:max-content}
 .hc-name{font-weight:700;font-size:1.08rem;color:var(--text);text-shadow:0 2px 10px rgba(0,0,0,0.8)}
 .hc-title{text-align:center;font-size:.92rem;color:var(--gold2);letter-spacing:.14em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
@@ -1551,7 +1561,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.2rem 2.
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo hoverable"><picture><source srcset="Uploads/Anwarsha%20Logo.webp" type="image/webp"><img src="Uploads/Anwarsha%20Logo.png" alt="Anwarsha N S Official Logo" class="nav-logo-img" width="34" height="34" loading="eager" decoding="async"></picture><span>Anwarsha<span style="color:var(--text3)">.</span>NS</span></a>
+  <a href="#hero" class="nav-logo hoverable"><picture><source srcset="Uploads/Anwarsha%20Logo.webp" type="image/webp"><img src="Uploads/Anwarsha%20Logo.png" alt="Anwarsha N S Official Logo" class="nav-logo-img" width="34" height="34" loading="eager" decoding="async"></picture><span>ANWARSHA <span class="logo-accent">N S</span></span></a>
   <ul class="nav-links">
     <li><a href="#about" class="hoverable">About</a></li>
     <li><a href="#skills" class="hoverable">Skills</a></li>
@@ -2437,6 +2447,31 @@ const barsEl = document.getElementById('skillBars');
 if (barsEl) barsObs.observe(barsEl);
 
 /* ═══════════════════════════════════════════
+   SMOOTH INTERNAL ANCHOR SCROLLING
+═══════════════════════════════════════════ */
+document.addEventListener('click', e => {
+  const anchor = e.target.closest('a[href^="#"]');
+  if (anchor) {
+    const href = anchor.getAttribute('href');
+    if (href && href.length > 1) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        if (typeof closeMenu === 'function') closeMenu();
+        if (typeof closeAiChatWindow === 'function') closeAiChatWindow();
+        const headerOffset = 68;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }
+});
+
+/* ═══════════════════════════════════════════
    CERTIFICATE FILE GALLERY
 ═══════════════════════════════════════════ */
 const certificateFiles = [
@@ -2450,6 +2485,19 @@ const certificateFiles = [
   { title: 'MyBharat Quiz Certificate', issuer: 'MyBharat', year: '2024', path: 'Uploads/MyBharat_Quiz_Certificate.webp', type: 'Image' },
   { title: 'Sports Club Secretary and Student Council Member', issuer: 'College Recognition', year: '2024', path: 'Uploads/Sports Club Secretary and Student council member.webp', type: 'Image' }
 ];
+
+function getScrollbarWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
+function lockScroll() {
+  const sbWidth = getScrollbarWidth();
+  if (sbWidth > 0) document.body.style.paddingRight = sbWidth + 'px';
+  document.body.style.overflow = 'hidden';
+}
+function unlockScroll() {
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
 
 function openCertLightbox(src, title) {
   let certLightbox = document.getElementById('certLightboxModal');
@@ -2471,11 +2519,13 @@ function openCertLightbox(src, title) {
   }
   document.getElementById('certLightboxImg').src = src;
   document.getElementById('certLightboxTitle').textContent = title || '';
+  lockScroll();
   certLightbox.classList.add('open');
 }
 function closeCertLightbox() {
   const certLightbox = document.getElementById('certLightboxModal');
   if (certLightbox) certLightbox.classList.remove('open');
+  unlockScroll();
 }
 
 function filterProjects(cat) {
@@ -2772,14 +2822,14 @@ function openProject(id) {
         <a href="${p.repo || 'https://github.com/anwarshans'}" target="_blank" class="btn btn-ghost" style="text-decoration:none;display:inline-flex;font-size:.8rem">View on GitHub →</a>
       </div>
     </div>`;
+  lockScroll();
   document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
   if (carouselImages.length) updateProjectCarousel();
 }
 function closeModal(e) {
   if (!e || e.target === document.getElementById('modalOverlay')) {
     document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
+    unlockScroll();
   }
 }
 function handleSubmit(event) {
@@ -2965,12 +3015,14 @@ function openAiPhotoLightbox(imgSrc, caption) {
   }
   const img = document.getElementById('aiLightboxImg');
   if (img) img.src = imgSrc;
+  lockScroll();
   lightbox.classList.add('open');
 }
 
 function closeAiPhotoLightbox() {
   const lightbox = document.getElementById('aiPhotoLightbox');
   if (lightbox) lightbox.classList.remove('open');
+  unlockScroll();
 }
 
 // Response Counters per intent to ensure non-repetitive answers for repeated questions
